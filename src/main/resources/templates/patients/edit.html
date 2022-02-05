@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Update</title>
+</head>
+<body>
+  <form th:method="PATCH" th:object="${patient}" th:action="@{/patients/{id}(id=${patient.getId()})}">
+      <div th:replace="/patients/common.html :: patient-fields"></div>
+      <input type="submit" value="Update!"/>
+  </form>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="ISO-8859-1">
+<title>Patients</title>
+</head>
+
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Surname</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="patient:${listPatient}">
+       <th><a th:href="@{/patients/{id}/edit(id=${patient.getId()})}" th:text="${patient.toString()}" ></a></th>
+    </tbody>
+</table>
+
+</body>
+</html>

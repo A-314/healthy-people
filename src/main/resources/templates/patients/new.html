@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New patient</title>
+</head>
+
+<body>
+<form th:method="POST" th:action ="@{/patients}" th:object="${patient}" >
+
+    <div class="row">
+        <input class="col-2 btn btn-save" type="submit" value="Save">
+    </div>
+
+    <div th:replace="/patients/common.html :: patient-fields"></div>
+</form>
+</body>
+</html>
