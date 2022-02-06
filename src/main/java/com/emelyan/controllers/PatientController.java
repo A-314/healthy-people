@@ -44,4 +44,9 @@ public class PatientController {
 		patientService.update(patient,id);
 		return "redirect:/patients";
 	}
+	@DeleteMapping("/{id}")
+	public String delete(@PathVariable("id") Long id){
+		patientService.delete(id);
+		return "redirect:/patients";
+	}
 }

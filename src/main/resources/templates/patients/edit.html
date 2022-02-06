@@ -9,5 +9,8 @@
       <div th:replace="/patients/common.html :: patient-fields"></div>
       <input type="submit" value="Update!"/>
   </form>
+  <form th:method="DELETE"  th:action="@{/patients/{id}(id=${patient.getId()})}">
+      <input type="submit" value="Delete"/>
+  </form>
 </body>
 </html>
