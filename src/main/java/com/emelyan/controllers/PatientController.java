@@ -2,11 +2,9 @@ package com.emelyan.controllers;
 
 import com.emelyan.model.Patient;
 import com.emelyan.service.PatientService;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 
 @Controller
@@ -21,7 +19,7 @@ public class PatientController {
 
 	@GetMapping()
 	public String getListPatient(Model model) {
-		model.addAttribute("listPatient", patientService.findAll());
+		model.addAttribute("patientList", patientService.findAll());
 		return "patients/index";}
 
 	@GetMapping("new")

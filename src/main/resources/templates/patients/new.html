@@ -1,19 +1,26 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>New patient</title>
-    <link href="/style.css" rel="local">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Добавить пациента</title>
+  <div th:replace="/main/common-fragments.html :: common-links"/>
 </head>
 
 <body>
-<form th:method="POST" th:action ="@{/patients}" th:object="${patient}" >
+<div th:replace="/main/common-fragments.html :: header"></div>
+<div class="container-fluid table-zone">
+  <div class="row">
+    <div th:replace="/main/common-fragments.html::menu"></div>
 
-    <div class="row">
-        <input class="col-2 btn btn-save" type="submit" value="Save">
-    </div>
+    <form th:method="POST" th:action ="@{/patients}" th:object="${patient}" class="needs-validation" novalidate>
+      <div class="row">
+        <input class="col-2 btn btn-save" type="submit" value="Сохранить">
+      </div>
+      <div th:replace="/patients/common-fields.html :: patient-fields"/>
+    </form>
+  </div>
+</div>
 
-    <div th:replace="/patients/common.html :: patient-fields"></div>
-</form>
 </body>
 </html>

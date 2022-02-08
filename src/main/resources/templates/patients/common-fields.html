@@ -1,0 +1,46 @@
+<div th:fragment="patient-fields">
+  <br>
+  <div class="row g-3">
+    <div class="col-sm-4 input-group-sm">
+      <label for="Name">Имя:</label>
+      <input type="text" th:field="*{person.name}" class="form-control" id="Name" />
+    </div>
+    <div class="col-sm-4 input-group-sm">
+      <label for="Surname">Фамилия:</label>
+      <input type="text" class="form-control" th:field="*{person.surname}" id="Surname" />
+    </div>
+    <div class="col-sm-4 input-group-sm">
+      <label for="Patronymic">Отчетство:</label>
+      <input type="text" class="form-control bg-color" th:field="*{person.patronymic}" id="Patronymic"/>
+    </div>
+  </div>
+  <br><!--
+  <div class="row g-3">
+    <div class="col-sm-3 input-group-sm">
+      <label for="Phone">Телефон:</label>
+      <input type="text" th:field="*{person.phone}" class="form-control" id="Phone"/>
+    </div>
+    <div class="col-sm-3 input-group-sm">
+      <label for="PhoneSecond">Доп. телефон:</label>
+      <input type="text" th:field="*{person.secondPhone}" class="form-control" id="PhoneSecond"/>
+    </div>
+    <div class="col-sm-3 input-group-sm">
+      <label for="BirthDate">Дата рождения:</label>
+      <input type="date" th:field="*{person.birthdate}" class="form-control" id="BirthDate"/>
+    </div>
+  </div>
+  <br>
+  <div class="row g-3">
+    <div class="col-sm-4 input-group-sm">
+      <label for="Address">Фактический адрес:</label>
+      <input type="text" th:field="*{person.factAddress}" class="form-control" id="Address" required/>
+    </div>
+  </div>
+  <br>
+  <div class="row g-3">
+    <div class="col-sm-3 input-group-sm">
+      <label for="Email">Почта:</label>
+      <input type="email" th:field="*{person.email}" class="form-control" id="Email" placeholder="ivanovich@gmail.com" required/>
+    </div>
+  </div>-->
+</div>

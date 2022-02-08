@@ -1,22 +1,39 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org" >
 <head>
-<meta charset="ISO-8859-1">
-<title>Patients</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Пациенты</title>
+
+    <div th:replace="/main/common-fragments.html :: common-links"/>
+
 </head>
-
 <body>
-<table>
-    <thead>
-    <tr>
-        <th>Surname</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="patient:${listPatient}">
-       <th><a th:href="@{/patients/{id}/edit(id=${patient.getId()})}" th:text="${patient.toString()}" ></a></th>
-    </tbody>
-</table>
 
+<div th:replace="/main/common-fragments.html :: header"></div>
+
+<div id="container-fluid">
+    <div  th:replace="/main/common-fragments.html :: menu"></div>
+
+    <div class="table-zone">
+        <a class="btn" href="/patients/new" role="button">Добавить пациента</a>
+        <table class="table table-striped table-sm">
+            <thead>
+            <tr>
+                <th>ФИО</th>
+                <th>Телефон</th>
+                <th>Адрес</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="patient:${patientList}">
+                <td><a th:text="${patient.getPerson()}" th:href="@{patients/{id}/edit(id=${patient.getId()})}"></a></td>
+                <!--<td><a th:text="${patient.person.getPhone()}" th:href="@{patients/{id}(id=${patient.getId()})}"></a></td>
+                <td><a th:text="${patient.person.getFactAddress()}" th:href="@{patients/{id}(id=${patient.getId()})}"></a></td>-->
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 </body>
 </html>
