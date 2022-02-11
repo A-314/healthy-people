@@ -14,7 +14,15 @@
       <input type="text" class="form-control bg-color" th:field="*{person.patronymic}" id="Patronymic"/>
     </div>
   </div>
-  <br><!--
+  <br>
+  <div class="custom-control custom-radio mb-3">Пол:
+    <input type="radio" class="custom-control-input" id="genderFemale" name="radio-stacked" th:field="*{person.gender}" value="FEMALE" required>
+    <label class="custom-control-label" for="genderFemale">Женский</label>
+    <input type="radio" class="custom-control-input" id="genderMale" name="radio-stacked" th:field="*{person.gender}" value="MALE" required>
+    <label class="custom-control-label" for="genderMale">Мужской</label>
+    <div class="invalid-feedback">More example invalid feedback text</div>
+  </div>
+  <!--
   <div class="row g-3">
     <div class="col-sm-3 input-group-sm">
       <label for="Phone">Телефон:</label>
