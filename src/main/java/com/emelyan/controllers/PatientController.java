@@ -28,7 +28,7 @@ public class PatientController {
 	}
 
 	@PostMapping()
-	public String create(@ModelAttribute("patient") @Valid Patient patient){
+	public String create(@ModelAttribute("patient")@Valid Patient patient){
 		patientService.save(patient);
 		return "patients/index";
 	}
