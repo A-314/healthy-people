@@ -16,17 +16,15 @@ public class PatientController {
 	PatientController(PatientService patientService){
 		this.patientService = patientService;
 	}
-
 	@GetMapping()
 	public String getListPatient(Model model) {
 		model.addAttribute("patientList", patientService.findAll());
-		return "patients/index";}
-
+		return "patients/index";
+	}
 	@GetMapping("new")
 	public String save(@ModelAttribute("patient")@Valid Patient patient){
 		return "patients/new";
 	}
-
 	@PostMapping()
 	public String create(@ModelAttribute("patient")@Valid Patient patient){
 		patientService.save(patient);
