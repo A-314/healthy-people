@@ -14,3 +14,6 @@ nav ul,nav li{outline:0;margin:0;padding:0}
 .main-menu li:hover>a,nav.main-menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a{color:yellow;background-color:#5fa2db}
 .color-back{background:linear-gradient(to right, #212121,#2d3239)}
 .table-zone {margin-left: 160px;font-size:14px;width: auto;font-family: sans-serif}
+
+.btn-save{margin-left:0}
+.btn-delete{position:absolute;right:0}
