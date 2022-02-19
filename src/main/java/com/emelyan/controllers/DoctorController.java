@@ -38,6 +38,7 @@ public class DoctorController {
     public String addDoctor(@ModelAttribute("doctor")@Valid Patient patient){
         return "doctors/new";
     }
+
     @PostMapping
     public String create(@ModelAttribute("doctor")@Valid Doctor doctor, BindingResult bindingResult){
         if(bindingResult.hasErrors())return "doctors/new";
