@@ -22,28 +22,28 @@ public class DoctorController {
     @GetMapping()
     public String index(Model model){
         model.addAttribute("doctorList",doctorService.findAll());
-        return "doctors/index";
+        return "people/doctors/index";
     }
     @GetMapping("{id}/edit")
     public String edit(@PathVariable("id") Long id,Model model){
         model.addAttribute("doctor",doctorService.getOne(id));
-        return "doctors/edit";
+        return "people/doctors/edit";
     }
     @PatchMapping("/{id}")
     public String update(@ModelAttribute("doctor") @Valid Doctor doctor,@PathVariable("id") Long id){
        doctorService.update(doctor,id);
-        return "redirect:/doctors";
+        return "redirect:people/doctors";
     }
     @GetMapping("/new")
     public String addDoctor(@ModelAttribute("doctor")@Valid Patient patient){
-        return "doctors/new";
+        return "people/doctors/new";
     }
 
     @PostMapping
     public String create(@ModelAttribute("doctor")@Valid Doctor doctor, BindingResult bindingResult){
-        if(bindingResult.hasErrors())return "doctors/new";
+        if(bindingResult.hasErrors())return "people/doctors/new";
         doctorService.save(doctor);
-        return "redirect:/doctors";
+        return "redirect:/people/doctors";
     }
 
     @DeleteMapping("{id}")

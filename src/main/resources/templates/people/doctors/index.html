@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Врачи</title>
+    <div th:replace="/common/fragments.html :: common-links"/>
+</head>
+<body>
+
+<div th:replace="/common/fragments.html :: header"></div>
+
+    <div id="container-fluid">
+        <div th:replace="/common/fragments.html :: menu"></div>
+
+        <div class="table-zone">
+            <a class="btn" href="/doctors/new" role="button">Добавить врача</a>
+            <table class="table table-striped table-sm">
+                <thead>
+                    <tr>
+                        <th>ФИО</th>
+                        <th>Телефон</th>
+                        <th>Адрес</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="doctor:${doctorList}">
+                        <td><a th:text="${doctor.getPerson()}" th:href="@{/doctors/{id}/edit(id=${doctor.getId()})}"></a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

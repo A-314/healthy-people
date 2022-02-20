@@ -19,30 +19,30 @@ public class PatientController {
 	@GetMapping()
 	public String getListPatient(Model model) {
 		model.addAttribute("patientList", patientService.findAll());
-		return "patients/index";
+		return "people/patients/index";
 	}
 	@GetMapping("new")
 	public String save(@ModelAttribute("patient")@Valid Patient patient){
-		return "patients/new";
+		return "people/patients/new";
 	}
 	@PostMapping()
 	public String create(@ModelAttribute("patient")@Valid Patient patient){
 		patientService.save(patient);
-		return "patients/index";
+		return "people/patients/index";
 	}
 	@GetMapping("/{id}/edit")
 	public String edit(Model model, @PathVariable("id")Long id){
 		model.addAttribute("patient", patientService.show(id));
-		return "patients/edit";
+		return "people/patients/edit";
 	}
 	@PatchMapping("/{id}")
 	public String update(@ModelAttribute("patient")@Valid Patient patient,@PathVariable("id") Long id){
 		patientService.update(patient,id);
-		return "redirect:/patients";
+		return "redirect:people/patients";
 	}
 	@DeleteMapping("/{id}")
 	public String delete(@PathVariable("id") Long id){
 		patientService.delete(id);
-		return "redirect:/patients";
+		return "redirect:people/patients";
 	}
 }

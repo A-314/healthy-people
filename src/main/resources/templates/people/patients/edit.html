@@ -4,24 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Редактировать данные</title>
-  <div th:replace="/main/common-fragments.html :: common-links"/>
-  <style>
-    .btn-save{margin-left:0}
-  .btn-delete{position:absolute;right:0}
-  </style>
+  <div th:replace="/common/fragments.html :: common-links"></div>
 </head>
 <body>
 
-  <div th:replace="/main/common-fragments.html :: header"/>
-  <div th:replace="/main/common-fragments.html :: menu"/>
+  <div th:replace="/common/fragments.html :: header"></div>
+  <div th:replace="/common/fragments.html :: menu"></div>
 
   <div class="container-fluid main-zone">
-    <form  th:method="DElETE" th:action = "@{/patients/{id}(id=${patient.getId()})}" th:object="${patient}" novalidate>
+    <form th:method="DElETE" th:action = "@{/patients/{id}(id=${patient.getId()})}" th:object="${patient}" novalidate>
       <input class="btn btn-delete" type="submit" value="Удалить">
     </form>
     <form th:method="PATCH" th:action = "@{/patients/{id}(id=${patient.getId()})}" th:object="${patient}" novalidate>
       <input class="btn btn-save" type="submit" value="Сохранить">
-      <div th:replace="/patients/common-fields.html :: patient-fields"/>
+      <div th:replace="/people/common-fields.html :: person-fields"></div>
     </form>
 
 
