@@ -21,29 +21,29 @@ public class DoctorController {
 
     @GetMapping()
     public String index(Model model){
-        model.addAttribute("doctorList",doctorService.findAll());
-        return "people/doctors/index";
+        model.addAttribute("doctors",doctorService.findAll());
+        return "person/doctors/index";
     }
     @GetMapping("{id}/edit")
     public String edit(@PathVariable("id") Long id,Model model){
         model.addAttribute("doctor",doctorService.getOne(id));
-        return "people/doctors/edit";
+        return "person/doctors/edit";
     }
     @PatchMapping("/{id}")
     public String update(@ModelAttribute("doctor") @Valid Doctor doctor,@PathVariable("id") Long id){
        doctorService.update(doctor,id);
-        return "redirect:people/doctors";
+        return "redirect:/doctors";
     }
     @GetMapping("/new")
     public String addDoctor(@ModelAttribute("doctor")@Valid Patient patient){
-        return "people/doctors/new";
+        return "person/doctors/new";
     }
 
     @PostMapping
     public String create(@ModelAttribute("doctor")@Valid Doctor doctor, BindingResult bindingResult){
-        if(bindingResult.hasErrors())return "people/doctors/new";
+        if(bindingResult.hasErrors())return "person/doctors/new";
         doctorService.save(doctor);
-        return "redirect:/people/doctors";
+        return "redirect:/doctors";
     }
 
     @DeleteMapping("{id}")
