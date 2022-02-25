@@ -1,0 +1,31 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Добавить пациента</title>
+  <div th:replace="/main/common-fragments.html :: common-links"></div>
+</head>
+<body>
+
+    <div th:replace="/main/common-fragments.html :: #navbar"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+
+       <div th:replace="/main/common-fragments.html :: #sidebarMenu"></div>
+
+       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"><br>
+
+          <form th:method="POST" th:action ="@{/patients}" th:object="${patient}" class="needs-validation" novalidate>
+              <input class="btn btn-primary btn-sm" type="submit" value="Сохранить"><br>
+
+              <div th:replace="/person/common-fields.html :: person-fields"></div>
+          </form>
+       </main>
+
+      </div>
+    </div>
+
+</body>
+</html>

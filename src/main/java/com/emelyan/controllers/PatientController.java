@@ -29,7 +29,7 @@ public class PatientController {
 	@PostMapping()
 	public String create(@ModelAttribute("patient")@Valid Patient patient){
 		patientService.save(patient);
-		return "person/patients/index";
+		return "redirect:/patients";
 	}
 	@GetMapping("/{id}/edit")
 	public String edit(Model model, @PathVariable("id")Long id){

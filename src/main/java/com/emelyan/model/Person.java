@@ -19,6 +19,12 @@ public class Person {
     private String surname;
     private String patronymic;
 
+    private String phone;
+
+    private String second_phone;
+    private String fact_address;
+    private String email;
+
     @Convert(converter = GenderConverter.class)
     public Gender gender;
 

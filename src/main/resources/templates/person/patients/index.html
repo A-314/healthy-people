@@ -1,0 +1,40 @@
+<!Doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Список пациентов</title>
+    <div th:replace="/main/common-fragments.html :: common-links"></div>
+</head>
+<body>
+
+<div th:replace="/main/common-fragments.html :: #navbar"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="/main/common-fragments.html :: #sidebarMenu"></div>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <br>
+            <div class="d-flex justify-content-center">
+                <h5><b>СПИСОК ПАЦИЕНТОВ</b></h5>
+            </div>
+            <a href="patients/new" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Добавить пациента</a>
+            <hr>
+            <table class="table table-striped table-sm">
+                <thead>
+                <tr>
+                    <th>Пациент</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="patient:${patients}">
+                    <td><a th:text="${patient.getPerson()}" th:href="@{patients/{id}/edit(id=${patient.getId()})}"></a></td>
+                </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+</div>
+</body>
+</html>
