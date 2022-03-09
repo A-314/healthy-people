@@ -1,33 +1,31 @@
-<!Doctype html>
-<html lang="ru">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Список врачей</title>
+    <meta charset="UTF-8">
+    <title>Therapy</title>
     <div th:replace="/main/common-fragments.html :: common-links"></div>
 </head>
 
 <body>
-
 <div th:replace="/main/common-fragments.html :: #navbar"></div>
 <div th:replace="/main/common-fragments.html :: #sidebarMenu"></div>
 
 <div class="content-container">
     <div class="container-fluid">
         <div class="d-flex justify-content-center">
-            <h5><b>СПИСОК ВРАЧЕЙ</b></h5>
+            <h5><b>Вызовы</b></h5>
         </div>
-        <a href="doctors/new" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Добавить врача</a>
+        <a href="therapies/new" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Добавить вызов</a>
         <hr>
         <table class="table table-striped table-sm">
             <thead>
             <tr>
-                <th>Пациент</th>
+                <th>Вызовы</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="doctor:${doctors}">
-                <td><a th:text="${doctor.getPerson()}" th:href="@{doctors/{id}/edit(id=${doctor.getId()})}"></a></td>
+            <tr th:each="therapy:${therapies}">
+                <td><a th:text="${therapy.getId()}" th:href="@{therapies/{id}/edit(id=${therapy.getId()})}"></a></td>
             </tr>
             </tbody>
         </table>

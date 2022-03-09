@@ -1,0 +1,51 @@
+<div th:fragment="therapy-fields">
+    <div>
+        <div class="d-flex justify-content-center">
+            <h3 class="">Персональны данные</h3>
+        </div>
+        <div class="border">
+            <div class="row">
+                <div class="col-sm-4">
+                    <label  for="Patient">Пациент: </label>
+                    <select class="js-select2" name="city" placeholder="Пациент">
+                        <div th:each="patient:${patients}" id="Patient">
+                            <option th:value="${patient.getId()}">[[${patient.getPerson()}]]</option>
+                        </div>
+                    </select>
+                </div>
+
+                <div class="col-sm-4">
+                    <label  for="Doctor">Доктор: </label>
+                    <select class="js-select2" name="city" placeholder="Доктор: ">
+                        <div th:each="doctor:${doctors}" id="Doctor">
+                            <option th:value="${doctor.getId()}">[[${doctor.getPerson()}]]</option>
+                        </div>
+                    </select>
+                </div>
+            </div><br>
+            <div class="row">
+
+                <div class="col-sm-4">
+                <label for="Description">Состояние пациента: </label>
+                <textarea class="form-control" th:value="${description}" id="Description"></textarea>
+                </div>
+            </div>
+
+        <link rel="stylesheet" href="https://snipp.ru/cdn/select2/4.0.13/dist/css/select2.min.css">
+        <script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://snipp.ru/cdn/select2/4.0.13/dist/js/select2.min.js"></script>
+        <script src="https://snipp.ru/cdn/select2/4.0.13/dist/js/i18n/ru.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('.js-select2').select2({
+                    placeholder: "Выберите город",
+                    maximumSelectionLength: 2,
+                    language: "ru"
+                });
+            });
+        </script>
+    </div>
+
+</div>
+
+

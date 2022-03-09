@@ -3,22 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Добавить пациента</title>
+  <title>Добавить врача</title>
   <div th:replace="/main/common-fragments.html :: common-links"></div>
 </head>
+
 <body>
 
     <div th:replace="/main/common-fragments.html :: #navbar"></div>
     <div th:replace="/main/common-fragments.html :: #sidebarMenu"></div>
-    <div class="content-container">
-        <div class="container-fluid">
 
-        <form th:method="POST" th:action ="@{/patients}" th:object="${patient}" class="needs-validation" novalidate>
+    <div class="content-container">
+      <div class="container-fluid">
+
+          <form th:method="POST" th:action ="@{/therapies}" class="needs-validation" novalidate>
             <input class="btn btn-primary btn-sm" type="submit" value="Сохранить"><br>
 
-            <div th:replace="/person/common-fields.html :: #person-fields"></div>
-        </form>
-        </div>
+            <div th:replace="/therapies/common-fields.html :: therapy-fields"></div>
+          </form>
+
+      </div>
     </div>
 
 </body>
