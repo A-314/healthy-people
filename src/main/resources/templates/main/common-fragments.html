@@ -1,66 +1,87 @@
-<div th:fragment="header" >
-    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3">Healthy people</a>
-
-        <header id="navbar" class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-            <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Healthy people</a>
-            <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <ul class="navbar-nav px-3">
-                <li class="nav-item text-nowrap">
-                    <a class="nav-link" href="#">войти</a>
-                </li>
-            </ul>
-        </header>
-    </nav>
-</div>
-
-<nav id="sidebarMenu">
-    <div class="sidebar-container">
-        <ul class="sidebar-navigation">
-            <li>
-                <a href="/therapies">
-                    <i class="fa fa-home" aria-hidden="true"></i> Визиты
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard
-                </a>
-            </li>
-            <li class="header">Справочная информация</li>
-            <li>
-                <a href="/patients">
-                    <i class="fa fa-users" aria-hidden="true"></i> Пациенты
-                </a>
-            </li>
-            <li>
-                <a href="/doctors">
-                    <i class="fa fa-cog" aria-hidden="true"></i> Доктора
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-info-circle" aria-hidden="true"></i> Information
-                </a>
-            </li>
-        </ul>
-    </div>
-</nav>
-
-<div th:fragment="common-links">
-    <!--Bootstrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <style th:replace="/main/style-fragment.html":: sidebarMenu></style>
+<div th:fragment="header">
+  <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3">Healthy people</a>
+    <ul class="navbar-nav px-3">
+      <li class="nav-item text-nowrap">
+        <a class="nav-link" href="#">войти</a>
+      </li>
+    </ul>
+  </nav>
 </div>
 
 
+<div th:fragment="menu">
+  <nav class="main-menu">
+    <ul>
+      <li>
+        <a href="/">
+          <i class="fa fa-home fa-2x"></i>
+          <span class="nav-text">Главная</span>
+        </a>
+      </li>
+      <li class="has-subnav">
+        <a href="/patients">
+          <i class="fa fa-users fa-2x"></i>
+          <span class="nav-text">Пациенты</span>
+        </a>
+      </li>
+      <li class="has-subnav">
+        <a href="/doctors">
+          <i class="fa fa-user-md fa-2x"></i>
+          <span class="nav-text">Доктора</span>
+        </a>
+      </li>
+      <li class="has-subnav">
+        <a href="/therapies">
+          <i class="fa fa-bar-chart-o fa-2x"></i>
+          <span class="nav-text">Визиты</span>
+        </a>
+      </li>
+      <li class="has-subnav">
+        <a href="#">
+          <i class="fa fa-envelope fa-2x"></i>
+          <span class="nav-text">Рассылка</span>
+        </a>
+      </li>
+      <li class="has-subnav">
+        <a href="#">
+          <i class="fa fa-envelope fa-2x"></i>
+          <span class="nav-text">Еще что-то</span>
+        </a>
+      </li>
+    </ul>
 
+    <ul class="logout">
+      <li>
+        <a href="#">
+          <i class="fa fa-2x"></i>
+          <span class="nav-text">о программе</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
 
+<div th:fragment="common-style">
 
+  <link href="/webjars/bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet" />
+  <script type="text/javascript" src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/css/style.css">
+</div>
 
-
-
-
+<div th:fragment="style-select2">
+  <link rel="stylesheet" href="https://snipp.ru/cdn/select2/4.0.13/dist/css/select2.min.css">
+  <script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://snipp.ru/cdn/select2/4.0.13/dist/js/select2.min.js"></script>
+  <script src="https://snipp.ru/cdn/select2/4.0.13/dist/js/i18n/ru.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.js-select2').select2({
+        placeholder: "Выбрать",
+        maximumSelectionLength: 2,
+        language: "ru"
+      });
+    });
+  </script>
+</div>

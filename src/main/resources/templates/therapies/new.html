@@ -1,28 +1,25 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Добавить врача</title>
-  <div th:replace="/main/common-fragments.html :: common-links"></div>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Новый пациент</title>
 </head>
-
 <body>
+<div th:replace="main/common-fragments.html :: header"></div>
+<div class="container-fluid">
+    <div class="table-zone">
+        <div th:replace="main/common-fragments.html :: menu"></div>
 
-    <div th:replace="/main/common-fragments.html :: #navbar"></div>
-    <div th:replace="/main/common-fragments.html :: #sidebarMenu"></div>
-
-    <div class="content-container">
-      <div class="container-fluid">
-
-          <form th:method="POST" th:action ="@{/therapies}" class="needs-validation" novalidate>
-            <input class="btn btn-primary btn-sm" type="submit" value="Сохранить"><br>
-
-            <div th:replace="/therapies/common-fields.html :: therapy-fields"></div>
-          </form>
-
-      </div>
+        <form th:method="POST" th:action ="@{/therapies}" th:object="${therapy}" class="needs-validation" novalidate>
+            <div class="row">
+                <input class="col-2 btn btn-save" type="submit" value="Сохранить">
+            </div>
+            <div th:replace="therapies/common-fields.html :: therapy-fields"></div>
+        </form>
     </div>
-
+</div>
+<div th:replace="main/common-fragments.html::common-style"></div>
+<div th:replace="main/common-fragments.html::style-select2"></div>
 </body>
 </html>

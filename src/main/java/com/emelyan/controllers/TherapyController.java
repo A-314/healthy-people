@@ -1,9 +1,9 @@
 package com.emelyan.controllers;
 
-import com.emelyan.model.Therapy;
-import com.emelyan.service.DoctorService;
-import com.emelyan.service.PatientService;
-import com.emelyan.service.TherapyService;
+import com.emelyan.models.Therapy;
+import com.emelyan.services.DoctorService;
+import com.emelyan.services.PatientService;
+import com.emelyan.services.TherapyService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
