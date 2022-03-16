@@ -1,0 +1,27 @@
+<!doctype>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Редактирование данных</title>
+</head>
+<body>
+
+<div th:replace="main/common-fragments.html :: header"></div>
+<div th:replace="main/common-fragments.html :: menu"></div>
+
+<div class="container-fluid table-zone">
+  <form  th:method="DElETE" th:action = "@{/patients/{id}(id=${patient.getId()})}" th:object="${patient}" novalidate>
+    <input class="btn btn-delete" type="submit" value="Удалить">
+  </form>
+  <form th:method="PATCH" th:action = "@{/patients/{id}(id=${patient.getId()})}" th:object="${patient}" novalidate>
+    <input class="btn btn-save" type="submit" value="Сохранить">
+
+    <div th:replace="people/common-fields.html :: person-fields"></div>
+
+  </form>
+</div>
+<link rel="stylesheet" href="/css/save-delete-btn.css">
+<div th:replace="main/common-fragments.html::common-style"/>
+</body>
+</html>
