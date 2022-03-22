@@ -3,6 +3,7 @@ package com.emelyan.models;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -22,10 +23,12 @@ public  class Person {
     private String patronymic;
 
     @Column(name="birth_date")
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private LocalDate birthdate;
 
     @Column(name = "phone")
     private String phone;
+
     @Column(name = "second_phone")
     private String secondPhone;
 
