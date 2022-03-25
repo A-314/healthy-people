@@ -1,0 +1,28 @@
+<!Doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Главная-регистрация заявок</title>
+</head>
+<body>
+<div th:replace="main/common-fragments.html :: header"></div>
+
+<div class="container-fluid">
+  <div class="table-zone">
+    <div th:replace="main/common-fragments.html :: menu"></div>
+
+    <div class="border">
+      <form method="post" action="/" th:object="${treatment}">
+        <input class="btn" type="submit" value="Сохранить изменения">
+        <div th:replace="treatments/common-fields.html:: treatment-fields"></div>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<div th:replace="main/common-fragments.html::common-style"></div>
+<div th:replace="main/common-fragments.html::style-select2"></div>
+</body>
+</html>

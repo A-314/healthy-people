@@ -1,19 +1,49 @@
 <!Doctype html>
-<html lang="ru" >
+<html lang="ru">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Список пациентов</title>
-
+    <title>Главная-регистрация заявок</title>
 </head>
 <body>
 <div th:replace="main/common-fragments.html :: header"></div>
 
-<div id="container-fluid">
-    <div th:replace="main/common-fragments.html :: menu"></div>
+<div class="container-fluid">
+    <div class="table-zone">
+        <div th:replace="main/common-fragments.html :: menu"></div>
 
+            <div class="container border">
+            <form method="post" action="@{/{id}(id=${treatment.getId()})}" th:object="${treatment}">
+                <input class="btn" type="submit" value="Добавить обращение клиента">
+                <div th:replace="treatments/common-fields.html:: treatment-fields"></div>
+            </form>
+            </div>
+
+        <hr>
+
+        <h2>Записи пациентов</h2>
+        <div class="table-responsive">
+            <table class="table table-striped  table-sm">
+                <thead>
+                <tr>
+                    <td>№</td>
+                    <td>Дата</td>
+                    <td>Пациент</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="treatment:${treatments}">
+                    <td><a th:text="${treatment.getId()}" th:href="@{/{id}/edit(id=${treatment.getId()})}"/></td>
+                    <td><a th:text="${treatment.getDate()}" th:href="@{/{id}/edit(id=${treatment.getId()})}"/></td>
+                    <td><a th:text="${treatment.getPatient()}" th:href="@{/{id}/edit(id=${treatment.getId()})}"/></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
-<div th:replace="main/common-fragments.html::common-style"/>
-<link rel="stylesheet" href="/css/save-delete-btn.css">
+
+<div th:replace="main/common-fragments.html::common-style"></div>
+<div th:replace="main/common-fragments.html::style-select2"></div>
 </body>
 </html>
