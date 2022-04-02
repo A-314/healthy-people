@@ -1,29 +1,24 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="/webjars/bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet" />
-  <script type="text/javascript" src="/webjars/jquery/3.4.1/jquery.min.js"></script>
-  <script type="text/javascript" src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-  <link rel="stylesheet" href="/css/style.css">
   <title>Новый пациент</title>
 </head>
 <body>
-<div th:replace="main/common-fragments.html :: header"></div>
-<div class="container-fluid">
-  <div class="table-zone">
-    <div th:replace="main/common-fragments.html :: menu"></div>
+    <div th:replace="main/common-fragments.html :: header"></div>
+    <div th:replace="main/common-fragments.html :: sidebar"></div>
+    <main>
+      <div class="container-fluid">
+         <form th:method="POST" th:action ="@{/doctors}" th:object="${doctor}" class="needs-validation" novalidate>
+          <div class="row g-3">
+            <input class="btn btn-on-left" type="submit" value="Сохранить">
+          </div>
+          <div th:replace="people/common-fields.html :: person-fields"></div>
+         </form>
+        </div>
+    </main>
 
-    <form th:method="POST" th:action ="@{/doctors}" th:object="${doctor}" class="needs-validation" novalidate>
-      <div class="row">
-        <input class="col-2 btn btn-save" type="submit" value="Сохранить">
-      </div>
-      <div th:replace="people/common-fields.html :: person-fields"/>
-    </form>
-  </div>
-</div>
-
+    <div th:replace="main/common-fragments.html::common-links"></div>
 </body>
 </html>

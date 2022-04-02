@@ -1,46 +1,42 @@
+<!--Displaying the fields of the Persons entity-->
 <div th:fragment="person-fields">
-    <br>
-    <div class="row g-3">
-        <div class="col-sm-4 input-group-sm">
-            <label for="Name">Имя:</label>
-            <input type="text" th:field="*{person.name}" class="form-control" id="Name" />
-        </div>
-        <div class="col-sm-4 input-group-sm">
-            <label for="Surname">Фамилия:</label>
-            <input type="text" class="form-control" th:field="*{person.surname}" id="Surname" />
-        </div>
-        <div class="col-sm-4 input-group-sm">
-            <label for="Patronymic">Отчетство:</label>
-            <input type="text" class="form-control bg-color" th:field="*{person.patronymic}" id="Patronymic"/>
-        </div>
-    </div>
-    <br>
-    <div class="row g-3">
-        <div class="col-sm-3 input-group-sm">
-            <label for="Phone">Телефон:</label>
-            <input type="text" th:field="*{person.phone}" class="form-control" id="Phone"/>
-        </div>
-        <div class="col-sm-3 input-group-sm">
-            <label for="PhoneSecond">Доп. телефон:</label>
-            <input type="text" th:field="*{person.secondPhone}" class="form-control" id="PhoneSecond"/>
-        </div>
-        <div class="col-sm-3 input-group-sm">
-            <label for="BirthDate">Дата рождения:</label>
-            <input type="date" th:field="*{person.birthdate}" class="form-control" id="BirthDate"/>
-        </div>
-    </div>
-    <br>
-    <div class="row g-3">
-        <div class="col-sm-4 input-group-sm">
-            <label for="Address">Фактический адрес:</label>
-            <input type="text" th:field="*{person.factAddress}" class="form-control" id="Address" required/>
-        </div>
-    </div>
-    <br>
-    <div class="row g-3">
-        <div class="col-sm-3 input-group-sm">
-            <label for="Email">Почта:</label>
-            <input type="email" th:field="*{person.email}" class="form-control" id="Email" placeholder="ivanovich@gmail.com" required/>
+    <div class="container">
+        <div class="row g-3">
+            <div class="col-sm-4 input-group-sm">
+                <label for="name">Имя:</label>
+                <input type="text" th:field="*{person.name}" class="form-control" id="name"/>
+            </div>
+            <div class="col-sm-4 input-group-sm">
+                <label for="surname">Фамилия:</label>
+                <input type="text" th:field="*{person.surname}" class="form-control" id="surname"/>
+            </div>
+            <div class="col-sm-4 input-group-sm">
+                <label for="patronymic">Отчетство:</label>
+                <input type="text" th:field="*{person.patronymic}" class="form-control" id="patronymic"/>
+            </div>
+
+            <div class="col-sm-3 input-group-sm">
+                <label for="phone">Телефон:</label>
+                <input type="text" th:field="*{person.phone}" class="form-control" id="phone"/>
+            </div>
+            <div class="col-sm-3 input-group-sm">
+                <label for="phoneSecond">Доп. телефон:</label>
+                <input type="text" th:field="*{person.secondPhone}" class="form-control" id="phoneSecond"/>
+            </div>
+            <div class="col-sm-2 input-group-sm">
+                <label for="birthDate">Дата рождения:</label>
+                <input type="date" th:field="*{person.birthdate}" class="form-control" id="birthDate"/>
+            </div>
+
+            <div class="col-sm-4 input-group-sm">
+                <label for="address">Фактический адрес:</label>
+                <input type="text" th:field="*{person.factAddress}" class="form-control" id="address"/>
+            </div>
+
+            <div class="col-sm-3 input-group-sm">
+                <label for="email">Почта:</label>
+                <input type="email" th:field="*{person.email}" class="form-control" id="email" placeholder="ivanovich@gmail.com"/>
+            </div>
         </div>
     </div>
 </div>

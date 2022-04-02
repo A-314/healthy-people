@@ -1,28 +1,28 @@
 <!doctype>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Редактирование данных</title>
 </head>
+
 <body>
+    <div th:replace="main/common-fragments.html :: header"></div>
+    <div th:replace="main/common-fragments.html :: sidebar"></div>
+    <main>
+        <div class="container-fluid">
+            <form  th:method="delete" th:action = "@{/therapies/{id}(id=${therapy.getId()})}" th:object="${therapy}" novalidate>
+                <input class="btn btn-on-right" type="submit" value="Удалить">
+            </form>
+            <form th:method="patch" th:action = "@{/therapies/{id}(id=${therapy.getId()})}" th:object="${therapy}" novalidate>
+                <input class="btn btn-on-left" type="submit" value="Сохранить">
 
-<div th:replace="main/common-fragments.html :: header"></div>
-<div th:replace="main/common-fragments.html :: menu"></div>
+                <div th:replace="therapies/common-fields.html :: therapy-fields"></div>
+            </form>
+        </div>
+    </main>
 
-<div class="container-fluid table-zone">
-    <form  th:method="DElETE" th:action = "@{/therapies/{id}(id=${therapy.getId()})}" th:object="${therapy}" novalidate>
-        <input class="btn btn-delete" type="submit" value="Удалить">
-    </form>
-    <form th:method="PATCH" th:action = "@{/therapies/{id}(id=${therapy.getId()})}" th:object="${therapy}" novalidate>
-        <input class="btn btn-save" type="submit" value="Сохранить">
-
-        <div th:replace="therapies/common-fields.html :: therapy-fields"/>
-
-    </form>
-</div>
-<link rel="stylesheet" href="/css/save-delete-btn.css">
-<div th:replace="main/common-fragments.html::common-style"/>
-<div th:replace="main/common-fragments.html::style-select2"/>
+    <div th:replace="main/common-fragments.html::common-links"></div>
+    <div th:replace="main/common-fragments.html::style-select2"></div>
 </body>
 </html>

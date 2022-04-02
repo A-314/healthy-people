@@ -1,5 +1,5 @@
 <div th:fragment="treatment-fields">
-    <div class="row">
+    <div class="row g-3">
         <div class="col-md-3">
           <label for="patient">Пациент</label>
           <select class="js-select2" th:field="*{patient}" id="patient">
@@ -14,22 +14,23 @@
           <label for="new_patient">Новый пациент:</label>
         </div>
       </div>
-    <br>
-      <div class="row">
+      <div class="row g-3">
         <div class="col-md-4">
           <label for="name">Имя пациента:</label>
           <input class="form-control" type="text" th:field="*{patientName}" id="name" >
         </div>
         <div class="col-md-2">
-          <label for="date">Дата записи к врачу</label>
+          <label for="date" >Дата записи к врачу</label>
           <input class="form-control" type="date" th:field="*{date}" id="date" >
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-6">
-          <label for="description">Описание:</label>
-          <textarea class="form-control" placeholder="Описание проблемы:симптомы, жалобы..." th:field="*{description}" id="description"></textarea>
-        </div>
+      <div class="row g-3">
+          <div class="col-sm-6 input-group-sm g-4">
+              <div class="form-floating">
+                  <textarea class="form-control" placeholder="Симптомы,состояние пациента" th:field="*{description}" id="floatingTextarea"></textarea>
+                  <label for="floatingTextarea">Описание проблемы:симптомы, жалобы...</label>
+              </div>
+          </div>
     </div>
 </div>
 

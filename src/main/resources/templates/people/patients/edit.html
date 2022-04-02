@@ -1,5 +1,5 @@
 <!doctype>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,21 +7,22 @@
 </head>
 <body>
 
-<div th:replace="main/common-fragments.html :: header"></div>
-<div th:replace="main/common-fragments.html :: menu"></div>
+  <div th:replace="main/common-fragments.html :: header"></div>
+  <div th:replace="main/common-fragments.html :: sidebar"></div>
 
-<div class="container-fluid table-zone">
-  <form  th:method="DElETE" th:action = "@{/patients/{id}(id=${patient.getId()})}" th:object="${patient}" novalidate>
-    <input class="btn btn-delete" type="submit" value="Удалить">
-  </form>
-  <form th:method="PATCH" th:action = "@{/patients/{id}(id=${patient.getId()})}" th:object="${patient}" novalidate>
-    <input class="btn btn-save" type="submit" value="Сохранить">
+    <main>
+      <div class="container-fluid">
+        <form th:method="DElETE" th:action = "@{/patients/{id}(id=${patient.getId()})}" th:object="${patient}" novalidate>
+          <input class="btn btn-on-right" type="submit" value="Удалить">
+        </form>
+        <form th:method="PATCH" th:action = "@{/patients/{id}(id=${patient.getId()})}" th:object="${patient}" novalidate>
+          <input class="btn btn-on-left" type="submit" value="Сохранить">
 
-    <div th:replace="people/common-fields.html :: person-fields"></div>
+          <div th:replace="people/common-fields.html :: person-fields"></div>
+        </form>
+      </div>
+    </main>
 
-  </form>
-</div>
-<link rel="stylesheet" href="/css/save-delete-btn.css">
-<div th:replace="main/common-fragments.html::common-style"/>
+  <div th:replace="main/common-fragments.html::common-links"></div>
 </body>
 </html>
