@@ -13,13 +13,14 @@ import javax.validation.Valid;
 public class PatientController {
 
     PatientService patientService;
-
     PatientController(PatientService patientService){
         this.patientService = patientService;
     }
+
     @GetMapping()
-    public String getListPatient(Model model) {
-        model.addAttribute("patients", patientService.findAll());
+    public String index(Model model,@RequestParam(required = false, defaultValue ="")String filter){
+        model.addAttribute("patients", patientService.patientList(filter));
+        model.addAttribute("filter",filter);
         return "people/patients/index";
     }
     @GetMapping("new")
@@ -28,8 +29,9 @@ public class PatientController {
     }
 
     @PostMapping()
-    public String create(@ModelAttribute("patient")@Valid Patient patient){
+    public String create(@ModelAttribute("patient")@Valid Patient patient,@RequestParam(required = false,defaultValue = "")String filter){
         patientService.save(patient);
+
         return "redirect:/patients";
     }
     @GetMapping("/{id}/edit")

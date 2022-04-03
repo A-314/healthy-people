@@ -20,7 +20,7 @@ public class MainController {
 
     @GetMapping("/")
     public String get(@ModelAttribute Treatment treatment, Model model){
-       model.addAttribute("patients",patientService.findAll());
+       model.addAttribute("patients",patientService.patientList(null));
        model.addAttribute("treatments",treatmentService.findAll());
         return "index";
     }
@@ -32,7 +32,7 @@ public class MainController {
 
     @GetMapping("/{id}/edit")
     public String edit(@PathVariable Long id, Model model){
-        model.addAttribute("patients",patientService.findAll());
+        model.addAttribute("patients",patientService.patientList(null));
         model.addAttribute("treatment",treatmentService.getOne(id));
         return "treatments/edit";
     }

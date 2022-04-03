@@ -13,8 +13,10 @@ public class PatientService {
 
     public PatientService (PatientRepository patientRepository){this.patientRepository=patientRepository;}
 
-    public List<Patient> findAll() {
-        return patientRepository.findAll();
+    public List<Patient> patientList(String filter) {
+        if(filter!=null && !filter.isEmpty()){
+            return patientRepository.findPatientWithFilter(filter);
+        }else {return patientRepository.findAll();}
     }
 
     public void save(Patient patient){
