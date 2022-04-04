@@ -20,8 +20,9 @@ public class DoctorController {
     }
 
     @GetMapping()
-    public String index(Model model){
-        model.addAttribute("doctors",doctorService.findAll());
+    public String index(Model model,@RequestParam(required = false, defaultValue = "")String filter){
+        model.addAttribute("doctors",doctorService.doctorList(filter));
+        model.addAttribute("filter",filter);
         return "people/doctors/index";
     }
     @GetMapping("{id}/edit")
