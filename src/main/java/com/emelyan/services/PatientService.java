@@ -15,7 +15,7 @@ public class PatientService {
 
     public List<Patient> patientList(String filter) {
         if(filter!=null && !filter.isEmpty()){
-            return patientRepository.findPatientWithFilter(filter);
+            return patientRepository.findPatientsWithFilter(filter);
         }else {return patientRepository.findAll();}
     }
 
