@@ -15,7 +15,7 @@
 	<description>Healthy people</description>
 
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>8</java.version>
 		<hibernate.version>5.4.28.Final</hibernate.version>
 		<lombok.version>1.18.22</lombok.version>
 		<postgresql.version>42.3.2</postgresql.version>
@@ -77,6 +77,10 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
 		</dependency>
 	</dependencies>
 
