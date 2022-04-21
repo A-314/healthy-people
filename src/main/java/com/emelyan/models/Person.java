@@ -9,7 +9,8 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @RequiredArgsConstructor
-
+@Builder(toBuilder = true)
+@AllArgsConstructor
 @Entity
 public  class Person {
     @Id

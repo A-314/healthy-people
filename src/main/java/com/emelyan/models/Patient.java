@@ -1,15 +1,14 @@
 package com.emelyan.models;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Getter
 @Setter
 @RequiredArgsConstructor
-
+@Builder(toBuilder = true)
+@AllArgsConstructor
 @Entity
 public class Patient {
     @Id
