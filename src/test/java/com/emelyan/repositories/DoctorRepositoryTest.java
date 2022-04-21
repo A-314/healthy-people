@@ -41,5 +41,15 @@ public class DoctorRepositoryTest {
 
         assertThat(lists.size()).isZero();
     }
+    @Test
+    public void findDoctorsWithFilterLowerCase(){
+        Person person = Person.builder().surname("Smith").build();
+        Doctor doctor = Doctor.builder().person(person).build();
 
+        doctorRepository.save(doctor);
+
+        List<Doctor> lists = doctorRepository.findDoctorsWithFilter("smith");
+
+        assertThat(lists.size()).isNotZero();
+    }
 }
