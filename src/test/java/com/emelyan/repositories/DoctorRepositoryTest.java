@@ -52,4 +52,12 @@ public class DoctorRepositoryTest {
 
         assertThat(lists.size()).isNotZero();
     }
+    @Test
+    public void findDoctorsWithFilterMiddlePartWord(){
+        doctorRepository.save(doctor);
+
+        List<Doctor> lists = doctorRepository.findDoctorsWithFilter("mit");
+
+        assertThat(lists.size()).isNotZero();
+    }
 }
