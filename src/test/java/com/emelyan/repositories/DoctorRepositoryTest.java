@@ -2,6 +2,7 @@ package com.emelyan.repositories;
 
 import com.emelyan.models.Doctor;
 import com.emelyan.models.Person;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.runner.RunWith;
@@ -21,7 +22,7 @@ public class DoctorRepositoryTest {
 
     private Doctor doctor;
 
-    @BeforeAll
+    @Before
     public void init(){
         Person person = Person.builder().name("Jack").surname("Smith").patronymic("L").build();
         doctor = Doctor.builder().person(person).build();
