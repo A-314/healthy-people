@@ -3,6 +3,7 @@ package com.emelyan.repositories;
 import com.emelyan.models.Doctor;
 import com.emelyan.models.Person;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -18,10 +19,15 @@ public class DoctorRepositoryTest {
     @Autowired
     private DoctorRepository doctorRepository;
 
+    private Doctor doctor;
+
+    @BeforeAll
+    public void init(){
+        Person person = Person.builder().name("Jack").surname("Smith").patronymic("L").build();
+        doctor = Doctor.builder().person(person).build();
+    }
     @Test
     public void findDoctorsWithFilter() {
-        Person person = Person.builder().surname("Smith").build();
-        Doctor doctor = Doctor.builder().person(person).build();
 
         doctorRepository.save(doctor);
 
@@ -32,9 +38,6 @@ public class DoctorRepositoryTest {
     }
     @Test
     public void findDoctorsWithFilterFail(){
-        Person person = Person.builder().surname("Smith").build();
-        Doctor doctor = Doctor.builder().person(person).build();
-
         doctorRepository.save(doctor);
 
         List<Doctor> lists = doctorRepository.findDoctorsWithFilter("Tom");
@@ -43,9 +46,6 @@ public class DoctorRepositoryTest {
     }
     @Test
     public void findDoctorsWithFilterLowerCase(){
-        Person person = Person.builder().surname("Smith").build();
-        Doctor doctor = Doctor.builder().person(person).build();
-
         doctorRepository.save(doctor);
 
         List<Doctor> lists = doctorRepository.findDoctorsWithFilter("smith");
