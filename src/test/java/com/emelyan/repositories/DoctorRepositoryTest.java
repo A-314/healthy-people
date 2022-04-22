@@ -4,14 +4,16 @@ import com.emelyan.models.Doctor;
 import com.emelyan.models.Person;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
+
 import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertAll;
 
 @PropertySource("/application-test.properties")
 @RunWith(SpringRunner.class)
@@ -32,10 +34,12 @@ public class DoctorRepositoryTest {
 
         doctorRepository.save(doctor);
 
-        List<Doctor> lists = doctorRepository.findDoctorsWithFilter("Smith");
+        assertAll(
+            ()->assertThat(doctorRepository.findDoctorsWithFilter("Jack").get(0).getId()).isEqualTo(doctor.getId()),
+            ()->assertThat(doctorRepository.findDoctorsWithFilter("Smith").get(0).getId()).isEqualTo(doctor.getId()),
+            ()->assertThat(doctorRepository.findDoctorsWithFilter("L").get(0).getId()).isEqualTo(doctor.getId())
+        );
 
-        assertThat(lists.size()).isNotZero();
-        assertThat(lists.get(0).getId()).isEqualTo(doctor.getId());
     }
     @Test
     public void findDoctorsWithFilterFail(){
@@ -61,4 +65,5 @@ public class DoctorRepositoryTest {
 
         assertThat(lists.size()).isNotZero();
     }
+
 }
