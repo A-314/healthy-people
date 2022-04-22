@@ -9,9 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
-
 import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
@@ -26,7 +24,7 @@ public class DoctorRepositoryTest {
 
     @Before
     public void init(){
-        Person person = Person.builder().name("Jack").surname("Smith").patronymic("L").build();
+        Person person = Person.builder().name("Jack").surname("Smith").patronymic("Leo").build();
         doctor = Doctor.builder().person(person).build();
     }
     @Test
@@ -37,7 +35,7 @@ public class DoctorRepositoryTest {
         assertAll(
             ()->assertThat(doctorRepository.findDoctorsWithFilter("Jack").get(0).getId()).isEqualTo(doctor.getId()),
             ()->assertThat(doctorRepository.findDoctorsWithFilter("Smith").get(0).getId()).isEqualTo(doctor.getId()),
-            ()->assertThat(doctorRepository.findDoctorsWithFilter("L").get(0).getId()).isEqualTo(doctor.getId())
+            ()->assertThat(doctorRepository.findDoctorsWithFilter("Leo").get(0).getId()).isEqualTo(doctor.getId())
         );
 
     }
@@ -53,17 +51,21 @@ public class DoctorRepositoryTest {
     public void findDoctorsWithFilterLowerCase(){
         doctorRepository.save(doctor);
 
-        List<Doctor> lists = doctorRepository.findDoctorsWithFilter("smith");
-
-        assertThat(lists.size()).isNotZero();
+        assertAll(
+            ()->assertThat(doctorRepository.findDoctorsWithFilter("smith")).size().isNotZero(),
+            ()->assertThat(doctorRepository.findDoctorsWithFilter("jack")).size().isNotZero(),
+            ()->assertThat(doctorRepository.findDoctorsWithFilter("leo")).size().isNotZero()
+        );
     }
     @Test
     public void findDoctorsWithFilterMiddlePartWord(){
         doctorRepository.save(doctor);
 
-        List<Doctor> lists = doctorRepository.findDoctorsWithFilter("mit");
-
-        assertThat(lists.size()).isNotZero();
+        assertAll(
+                ()->assertThat(doctorRepository.findDoctorsWithFilter("mit")).size().isNotZero(),
+                ()->assertThat(doctorRepository.findDoctorsWithFilter("ac")).size().isNotZero(),
+                ()->assertThat(doctorRepository.findDoctorsWithFilter("e")).size().isNotZero()
+        );
     }
 
 }
