@@ -9,9 +9,10 @@
 
   <div th:replace="main/common-fragments.html :: header"></div>
   <div th:replace="main/common-fragments.html :: sidebar"></div>
+
   <main>
     <div class="container-fluid">
-      <form  th:method="DElETE" th:action = "@{/doctors/{id}(id=${doctor.getId()})}" th:object="${doctor}" novalidate>
+      <form th:method="DElETE" th:action = "@{/doctors/{id}(id=${doctor.getId()})}" th:object="${doctor}" novalidate>
         <input class="btn btn-on-right" type="submit" value="Удалить">
       </form>
 
@@ -19,9 +20,9 @@
         <input class="btn btn-on-left" type="submit" value="Сохранить">
         <div th:replace="people/common-fields.html :: person-fields"></div>
       </form>
-        </div>
+    </div>
   </main>
-  <div th:replace="main/common-fragments.html::common-links"></div>
 
+  <div th:replace="main/common-fragments.html::common-links"></div>
 </body>
 </html>

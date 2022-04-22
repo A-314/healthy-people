@@ -9,12 +9,11 @@
 <body>
   <div th:replace="main/common-fragments.html :: header"></div>
   <div th:replace="main/common-fragments.html :: sidebar"></div>
+
   <main>
     <div class="container-fluid">
       <form th:method="post" th:action ="@{/patients}" th:object="${patient}" class="needs-validation">
-        <div class="row">
-          <input class="btn" type="submit" value="Сохранить">
-        </div>
+          <input class="btn btn-on-left" type="submit" value="Сохранить">
         <div th:replace="people/common-fields.html :: person-fields"></div>
       </form>
     </div>

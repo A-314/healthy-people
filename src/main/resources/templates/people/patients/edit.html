@@ -10,18 +10,18 @@
   <div th:replace="main/common-fragments.html :: header"></div>
   <div th:replace="main/common-fragments.html :: sidebar"></div>
 
-    <main>
-      <div class="container-fluid">
-        <form th:method="DElETE" th:action = "@{/patients/{id}(id=${patient.getId()})}" th:object="${patient}" novalidate>
-          <input class="btn btn-on-right" type="submit" value="Удалить">
-        </form>
-        <form th:method="PATCH" th:action = "@{/patients/{id}(id=${patient.getId()})}" th:object="${patient}" novalidate>
-          <input class="btn btn-on-left" type="submit" value="Сохранить">
+  <main>
+    <div class="container-fluid">
+      <form th:method="DElETE" th:action = "@{/patients/{id}(id=${patient.getId()})}" th:object="${patient}" novalidate>
+        <input class="btn btn-on-right" type="submit" value="Удалить">
+      </form>
 
-          <div th:replace="people/common-fields.html :: person-fields"></div>
-        </form>
-      </div>
-    </main>
+      <form th:method="PATCH" th:action = "@{/patients/{id}(id=${patient.getId()})}" th:object="${patient}" novalidate>
+        <input class="btn btn-on-left" type="submit" value="Сохранить">
+        <div th:replace="people/common-fields.html :: person-fields"></div>
+      </form>
+    </div>
+  </main>
 
   <div th:replace="main/common-fragments.html::common-links"></div>
 </body>
