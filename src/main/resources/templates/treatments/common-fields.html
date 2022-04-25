@@ -1,36 +1,31 @@
 <div th:fragment="treatment-fields">
     <div class="row g-3">
-        <div class="col-md-3">
-          <label for="patient">Пациент</label>
-          <select class="js-select2" th:field="*{patient}" id="patient">
-            <option value="" selected>--</option>
-            <option th:each="patient:${patients}"
-                    th:value="${patient.getId()}"
-                    th:utext="${patient.getPerson()}">
-          </select>
-        </div>
-        <div class="col-md-2">
-          <input class="form-check-input" type="checkbox" th:field="*{isNewPatient}" id="new_patient">
-          <label for="new_patient">Новый пациент:</label>
-        </div>
-      </div>
-      <div class="row g-3">
-        <div class="col-md-4">
-          <label for="name">Имя пациента:</label>
-          <input class="form-control" type="text" th:field="*{patientName}" id="name" >
-        </div>
-        <div class="col-md-2">
-          <label for="date" >Дата записи к врачу</label>
-          <input class="form-control" type="date" th:field="*{date}" id="date" >
-        </div>
-      </div>
-      <div class="row g-3">
-          <div class="col-sm-6 input-group-sm g-4">
-              <div class="form-floating">
-                  <textarea class="form-control" placeholder="Симптомы,состояние пациента" th:field="*{description}" id="floatingTextarea"></textarea>
-                  <label for="floatingTextarea">Описание проблемы:симптомы, жалобы...</label>
-              </div>
-          </div>
+        <div class="col-md-6">
+            <div class="row g-3">
+               <div class="col-md-3">
+                    <label for="date">Дата записи к врачу:</label>
+                    <input class="form-control" type="date" th:field="*{date}" id="date" th:value="${date}">
+                </div>
+                <div class="col-md-6">
+                    <label for="name">Следует уточнить, обращался ли пациент ранее</label>
+                    <input class="form-control" type="text" th:field="*{patientName}" id="name" placeholder="Как можно обращаться к пациенту, имя">
+                </div>
+                <div class="col-md-6">
+                    <select class="js-select2" style="width:100%" th:field="*{patient}" id="patient">
+                        <option value="" selected>--</option>
+                        <option th:each="patient:${patients}"
+                                th:value="${patient.getId()}"
+                                th:utext="${patient.getPerson()}">
+                    </select>
+                </div>
+                <div class="col-sm-12 input-group-sm g-4">
+                    <textarea class="form-control" placeholder="Симптомы, состояние пациента..." th:field="*{description}" id="floatingTextarea"></textarea>
+                </div>
+                <div class="col-12">
+                    <input type="text" class="form-control" id="inputAddress2" placeholder="Адрес, по которому будут ожидать врача">
+                </div>
+            </div>
+         </div>
     </div>
 </div>
 
