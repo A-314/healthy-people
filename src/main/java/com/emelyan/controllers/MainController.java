@@ -18,7 +18,7 @@ public class MainController {
         this.patientService = patientService;
     }
 
-    @GetMapping("/")
+    @GetMapping
     public String get(@ModelAttribute Treatment treatment, Model model){
        model.addAttribute("patients",patientService.patientList(null));
        model.addAttribute("treatments",treatmentService.findAll());

@@ -7,10 +7,7 @@
                     <input class="form-control" type="date" th:field="*{date}" id="date" th:value="${date}">
                 </div>
                 <div class="col-md-6">
-                    <label for="name">Следует уточнить, обращался ли пациент ранее</label>
-                    <input class="form-control" type="text" th:field="*{patientName}" id="name" placeholder="Как можно обращаться к пациенту, имя">
-                </div>
-                <div class="col-md-6">
+                    <label for="patient">Указать, если ли пациент обращался ранее</label>
                     <select class="js-select2" style="width:100%" th:field="*{patient}" id="patient">
                         <option value="" selected>--</option>
                         <option th:each="patient:${patients}"
@@ -18,11 +15,17 @@
                                 th:utext="${patient.getPerson()}">
                     </select>
                 </div>
-                <div class="col-sm-12 input-group-sm g-4">
-                    <textarea class="form-control" placeholder="Симптомы, состояние пациента..." th:field="*{description}" id="floatingTextarea"></textarea>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" th:field="*{patientName}" id="name" placeholder="*Указать имя, если пациент впервые">
+                </div>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" placeholder="Телефон для обратной связи">
+                </div>
+                <div class="col-sm-12 input-group">
+                    <textarea class="form-control" placeholder="Симптомы, что беспокоит пациента..." th:field="*{description}" id="floatingTextarea"></textarea>
                 </div>
                 <div class="col-12">
-                    <input type="text" class="form-control" id="inputAddress2" placeholder="Адрес, по которому будут ожидать врача">
+                    <input type="text" class="form-control" id="inputAddress2" placeholder="Адрес, по которому ожидают врача">
                 </div>
             </div>
          </div>
