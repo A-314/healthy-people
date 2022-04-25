@@ -12,9 +12,8 @@
 
 <main>
   <div class="container-fluid">
-
       <div class="border">
-          <form method="post" action="/" th:object="${treatment}">
+          <form method="post" th:action ="@{/{id}(id=${treatment.getId()})}" th:object="${treatment}">
             <input class="btn" type="submit" value="Сохранить изменения">
             <div th:replace="treatments/common-fields.html:: treatment-fields"></div>
           </form>
