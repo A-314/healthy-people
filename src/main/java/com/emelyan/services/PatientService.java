@@ -24,7 +24,7 @@ public class PatientService {
     }
 
     public void update(Patient updatePatient,Long id){
-        Long personId = patientRepository.findById(id).get().getPerson().getId();
+        Integer personId = patientRepository.findById(id).get().getPerson().getId();
         updatePatient.getPerson().setId(personId);
         patientRepository.save(updatePatient);
     }
