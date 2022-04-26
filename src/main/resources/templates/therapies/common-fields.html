@@ -1,8 +1,10 @@
 <div th:fragment="therapy-fields">
     <div>
-        <div class="border">
+        <div class="d-flex justify-content-center">
             <h3 class="">Персональны данные</h3>
-            <div class="row п-3">
+        </div>
+        <div class="border">
+            <div class="row">
                 <div class="col-sm-4">
                     <label  for="Patient">Доктор: </label>
                     <select class="js-select2" th:field="*{patient}" id="Patient">
@@ -12,6 +14,7 @@
                                 th:utext="${patient.getPerson()}"></option>
                     </select>
                 </div>
+
                 <div class="col-sm-4">
                     <label  for="Doctor">Доктор: </label>
                     <select class="js-select2" th:field="*{doctor}" id="Doctor">
@@ -22,21 +25,22 @@
                     </select>
                 </div>
 
-                <div class="col-sm-5 input-group-sm g-4">
+            </div><br>
+            <div class="row">
+                <div class="col-sm-4 input-group-sm">
                     <div class="form-floating">
+                        <label for="floatingTextarea">Описание течения заболевания</label>
                         <textarea class="form-control" placeholder="Симптомы,состояние пациента" id="floatingTextarea"></textarea>
-                        <label for="floatingTextarea">Симптомы,состояние пациента</label>
-                    </div>
+                     </div>
                 </div>
-                <div class="col-sm-4 input-group-sm g-4">
-                    <div class="form-floating">
-                        <input type="text" th:field="*{diagnosis}" class="form-control" id="Disease"/>
-                        <label for="Disease">Диагноз:</label>
-                    </div>
+                <div class="col-sm-4 input-group-sm">
+                    <label for="Disease">Диагноз:</label>
+                    <input type="text" th:field="*{diagnosis}" class="form-control" id="Disease" />
                 </div>
             </div>
-        </div>
+         </div>
     </div>
+
 </div>
 
 
