@@ -14,7 +14,8 @@
     <div class="container-fluid">
       <form th:method="post" th:action ="@{/patients}" th:object="${patient}" class="needs-validation">
           <input class="btn btn-on-left" type="submit" value="Сохранить">
-        <div th:replace="people/common-fields.html :: person-fields"></div>
+
+          <div th:replace="people/common-fields.html :: person-fields"></div>
       </form>
     </div>
   </main>

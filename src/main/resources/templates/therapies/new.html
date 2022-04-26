@@ -6,19 +6,17 @@
     <title>Новый пациент</title>
 </head>
 <body>
-<div th:replace="main/common-fragments.html :: header"></div>
-<div th:replace="main/common-fragments.html :: sidebar"></div>
-<main>
-    <div class="container-fluid">
+    <div th:replace="main/common-fragments.html :: header"></div>
+    <div th:replace="main/common-fragments.html :: sidebar"></div>
 
-        <form th:method="POST" th:action ="@{/therapies}" th:object="${therapy}" class="needs-validation" novalidate>
-            <div class="row">
-                <input class="col-2 btn-on-left" type="submit" value="Сохранить">
-            </div>
-            <div th:replace="therapies/common-fields.html :: therapy-fields"></div>
-        </form>
-    </div>
-</main>
+    <main>
+        <div class="container-fluid">
+            <form th:method="POST" th:action ="@{/therapies}" th:object="${therapy}" class="needs-validation" novalidate>
+                <input class="btn btn-on-left" type="submit" value="Сохранить">
+                <div th:replace="therapies/common-fields.html :: therapy-fields"></div>
+            </form>
+        </div>
+    </main>
 
 <div th:replace="main/common-fragments.html::common-links"></div>
 <div th:replace="main/common-fragments.html::style-select2"></div>
