@@ -18,16 +18,16 @@ public class MainController {
         this.patientService = patientService;
     }
 
-    @GetMapping
+    @GetMapping("/")
     public String get(@ModelAttribute Treatment treatment, Model model){
        model.addAttribute("patients",patientService.patientList(null));
        model.addAttribute("treatments",treatmentService.findAll());
         return "index";
     }
-    @PostMapping()
+    @PostMapping("/")
     public String save(@ModelAttribute Treatment treatment){
         treatmentService.save(treatment);
-        return "redirect:/";
+        return "redirect:";
     }
 
     @GetMapping("/{id}/edit")
@@ -39,6 +39,6 @@ public class MainController {
     @PatchMapping("/{id}")
     public String update(@ModelAttribute Treatment treatment){
         treatmentService.update(treatment);
-        return "redirect:";
+        return "redirect:/";
     }
 }
