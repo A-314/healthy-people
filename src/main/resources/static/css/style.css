@@ -10,6 +10,7 @@ nav ul,nav li{outline:0;margin:0;padding:0}
 .color-back{background:linear-gradient(to right, #212121,#2d3239)}
  main {margin-left: 160px;font-size:14px;width: auto;font-family: sans-serif}
 .navbar{color: #e6f3fe}
+ select{width: 100%}
 
 *{font-family:sans-serif}
 .btn{margin:1%; font-size:15px; font-weight:bold; width:auto; background-color: #82b6e3}

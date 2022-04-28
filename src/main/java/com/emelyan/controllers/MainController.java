@@ -41,4 +41,9 @@ public class MainController {
         treatmentService.update(treatment);
         return "redirect:/";
     }
+
+    @GetMapping("/about_program")
+    public String getAboutProgram(){
+        return "about_program/index";
+    }
 }

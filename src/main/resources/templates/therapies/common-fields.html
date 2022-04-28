@@ -6,15 +6,14 @@
         <div class="border">
             <div class="row">
                 <div class="col-sm-4">
-                    <label  for="Patient">Доктор: </label>
-                    <select class="js-select2" th:field="*{patient}" id="Patient">
+                    <label  for="Patient">Пациент: </label>
+                    <select class="js-select2"  th:field="*{patient}" id="Patient">
                         <option value="" selected> -- </option>
                         <option th:each="patient  : ${patients}"
                                 th:value="${patient.getId()}"
                                 th:utext="${patient.getPerson()}"></option>
                     </select>
                 </div>
-
                 <div class="col-sm-4">
                     <label  for="Doctor">Доктор: </label>
                     <select class="js-select2" th:field="*{doctor}" id="Doctor">
@@ -24,23 +23,21 @@
                                 th:utext="${doctor.getPerson()}"></option>
                     </select>
                 </div>
-
-            </div><br>
-            <div class="row">
-                <div class="col-sm-4 input-group-sm">
-                    <div class="form-floating">
-                        <label for="floatingTextarea">Описание течения заболевания</label>
-                        <textarea class="form-control" placeholder="Симптомы,состояние пациента" id="floatingTextarea"></textarea>
-                     </div>
-                </div>
                 <div class="col-sm-4 input-group-sm">
                     <label for="Disease">Диагноз:</label>
                     <input type="text" th:field="*{diagnosis}" class="form-control" id="Disease" />
                 </div>
+                <div class="col-sm-4 input-group-sm">
+                    <label for="symptoms">Анамнез:</label>
+                    <textarea class="form-control" placeholder="Симптомы, состояние пациента..." id="symptoms"></textarea>
+                </div>
+                <div class="col-sm-4 input-group-sm">
+                    <label for="preparations">Препараты:</label>
+                    <textarea class="form-control" placeholder="Рекомендуемые препараты" id="preparations"></textarea>
+                </div>
             </div>
          </div>
     </div>
-
 </div>
 
 
