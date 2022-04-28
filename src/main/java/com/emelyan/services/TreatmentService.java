@@ -2,6 +2,7 @@ package com.emelyan.services;
 
 import com.emelyan.models.Treatment;
 import com.emelyan.repositories.TreatmentRepository;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public class TreatmentService {
 
     public void save(Treatment treatment){treatmentRepository.save(treatment);}
 
-    public List<Treatment> findAll(){return treatmentRepository.findAll();}
+    public List<Treatment> findAll(){return treatmentRepository.findAll(Sort.by("date","id"));}
 
     public Treatment getOne(Long id){return  treatmentRepository.getOne(id);}
 
