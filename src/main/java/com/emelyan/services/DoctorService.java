@@ -20,6 +20,9 @@ public class DoctorService {
             return doctorRepository.findDoctorsWithFilter(filter);
         }else {return doctorRepository.findAll();}
     }
+    public List<Doctor> doctorList(){
+        return doctorRepository.findAll();
+    }
 
     public void save(Doctor doctor){
         doctorRepository.save(doctor);
