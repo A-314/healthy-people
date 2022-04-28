@@ -31,7 +31,7 @@ public class TherapyController {
     @GetMapping("new")
     public String index( @ModelAttribute("therapy")@Valid Therapy therapy,Model model){
         model.addAttribute("doctors",doctorService.doctorList(null));
-        model.addAttribute("patients",patientService.patientList(null));
+        model.addAttribute("patients",patientService.patientList());
         return "therapies/new";
     }
     @PostMapping()
@@ -43,7 +43,7 @@ public class TherapyController {
     public String edit( @PathVariable("id")Long id,Model model){
         model.addAttribute("therapy",  therapyService.show(id));
         model.addAttribute("doctors",  doctorService.doctorList(null));
-        model.addAttribute("patients", patientService.patientList(null));
+        model.addAttribute("patients", patientService.patientList());
         return "therapies/edit";
     }
     @PatchMapping("/{id}")

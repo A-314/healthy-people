@@ -18,6 +18,9 @@ public class PatientService {
             return patientRepository.findPatientsWithFilter(filter);
         }else {return patientRepository.findAll();}
     }
+    public List<Patient> patientList() {
+     return patientRepository.findAll();
+    }
 
     public void save(Patient patient){
         patientRepository.save(patient);
