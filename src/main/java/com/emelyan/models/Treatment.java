@@ -8,7 +8,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-
 @Getter
 @Setter
 @RequiredArgsConstructor
@@ -33,4 +32,7 @@ public class Treatment {
     private String patientName;
 
     private String description;
+
+    private String phone;
+    private String address;
 }
