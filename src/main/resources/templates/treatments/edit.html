@@ -10,10 +10,14 @@
 <div th:replace="main/common-fragments.html :: sidebar"></div>
 <main>
   <div class="container-fluid">
-    <form method="post" action="/" th:object="${treatment}">
-      <input class="btn" type="submit" value="Сохранить изменения">
-      <div th:replace="treatments/common-fields.html:: treatment-fields"></div>
-    </form>
+    <div class="row">
+      <div class="col-md-6">
+        <form method="post" action="/" th:object="${treatment}">
+          <input class="btn" type="submit" value="Сохранить изменения">
+          <div th:replace="treatments/common-fields.html:: treatment-fields"></div>
+        </form>
+    </div>
+    </div>
   </div>
 </main>
 
