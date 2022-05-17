@@ -1,46 +1,38 @@
 <div th:fragment="treatment-fields">
     <div class="row g-3 border">
-        <div class="">
-            <div class="">
-                <label for="date">Дата записи к врачу:</label>
-                <input class="form-control" type="date" style="width: 155px;" th:field="*{date}" id="date" th:value="${date}">
-            </div>
-        </div>
+        <div>
+             <label for="date">Дата записи к врачу:</label>
+            <input class="form-control" type="date" style="width: 155px;" th:field="*{date}" id="date" th:value="${date}">
+         </div>
 
-        <div class="">
-            <div >
-                <label for="exampleDataList">Список пациентов</label>
-                <input class="form-control" th:field="*{patient}" list="datalistOptions" id="exampleDataList" placeholder="Введите пациента...">
-                <datalist id="datalistOptions">
-                    <option value="" selected>--</option>
-                    <option th:each="patient:${patients}"
-                            th:data-value="${patient.getId()}"
-                            th:utext="${patient.getPerson()}">
-                </datalist>
-            </div>
-        </div>
+          <div>
+              <label for="patient">Указать, если ли пациент обращался ранее:</label>
+              <select class="js-select2" th:field="*{patient}" id="patient"  style="width: 100%">
+                  <option value="" selected>--</option>
+                  <option th:each="patient:${patients}"
+                          th:value="${patient.getId()}"
+                          th:utext="${patient.getPerson()}">
+              </select>
+          </div>
 
-        <div class="">
-            <div class="">
-                <label for="name">Список пациентов:</label>
-                <input class="form-control" type="text" th:field="*{patientName}" id="name" placeholder="*Указать имя, если пациент впервые">
-            </div>
-        </div>
-        <div class="">
-                <label for="phone">Телефоны:</label>
-                <input class="form-control" type="text" th:field="*{phone}" placeholder="Телефон" id="phone">
-        </div>
-        <div class="col-md-12 col-sm-12">
-                <label for="description">Симптомы пациента:</label>
-                <textarea class="form-control" th:field="*{description}" placeholder="Симптомы, беспокоящие пациента..."  id="description"></textarea>
-        </div>
-        <div class="col-12">
-            <div class="mb-3">
-                <input type="text" class="form-control" th:field="*{address}" id="inputAddress2" placeholder="Адрес, по которому ожидают врача">
-            </div>
-        </div>
+          <div>
+              <label for="name">Имя:</label>
+              <input class="form-control" type="text" th:field="*{patientName}" id="name" placeholder="*Указать имя, если пациент впервые">
+          </div>
 
+          <div>
+              <label for="phone">Телефон:</label>
+              <input class="form-control" type="text" th:field="*{phone}" placeholder="Телефон" id="phone">
+          </div>
 
+          <div class="col-md-12 col-sm-12">
+              <label for="description">Симптомы пациента:</label>
+              <textarea class="form-control" th:field="*{description}" placeholder="Симптомы, беспокоящие пациента..."  id="description"></textarea>
+          </div>
+
+          <div class="col-12">
+             <label for="address">Адрес по которому ожидают врача:</label>
+             <input type="text" class="form-control" th:field="*{address}" id="address" placeholder="Адрес, по которому ожидают врача">
+          </div>
     </div>
-
 </div>

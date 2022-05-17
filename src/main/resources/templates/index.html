@@ -13,8 +13,8 @@
         <div class="row g-3">
             <div class="col-md-3">
                 <form method="post" th:action="@{/{id}(id=${treatment.getId()})}" th:object="${treatment}">
-                <input class="btn" type="submit" value="Добавить обращение клиента">
-                <div th:replace="treatments/common-fields.html:: treatment-fields"></div>
+                    <input class="btn" id="submit" type="submit" value="Добавить обращение">
+                    <div th:replace="treatments/common-fields.html:: treatment-fields"></div>
                 </form>
             </div>
 

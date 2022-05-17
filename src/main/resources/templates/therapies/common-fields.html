@@ -6,21 +6,21 @@
         <div class="border">
             <div class="row">
                 <div class="col-sm-4">
-                    <label  for="Patient">Пациент: </label>
-                    <select class="js-select2"  th:field="*{patient}" id="Patient">
-                        <option value="" selected> -- </option>
-                        <option th:each="patient  : ${patients}"
+                    <label for="patientList">Указать, если ли пациент обращался ранее:</label>
+                    <select class="js-select2" th:field="*{patient}"  id="patientList" style="width: 100%">
+                        <option value="" selected>--</option>
+                        <option th:each="patient:${patients}"
                                 th:value="${patient.getId()}"
-                                th:utext="${patient.getPerson()}"></option>
+                                th:utext="${patient.getPerson()}">
                     </select>
                 </div>
                 <div class="col-sm-4">
-                    <label  for="Doctor">Доктор: </label>
-                    <select class="js-select2" th:field="*{doctor}" id="Doctor">
-                        <option value="" selected> -- </option>
-                        <option th:each="doctor : ${doctors}"
+                    <label for="doctorList">Список врачей:</label>
+                    <select class="js-select2" th:field="*{doctor}"  id="doctorList" style="width: 100%">
+                        <option value="" selected>--</option>
+                        <option th:each="doctor:${doctors}"
                                 th:value="${doctor.getId()}"
-                                th:utext="${doctor.getPerson()}"></option>
+                                th:utext="${doctor.getPerson()}">
                     </select>
                 </div>
                 <div class="col-sm-4 input-group-sm">
