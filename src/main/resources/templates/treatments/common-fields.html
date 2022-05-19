@@ -2,7 +2,7 @@
     <div class="row g-3 border">
         <div>
              <label for="date">Дата записи к врачу:</label>
-            <input class="form-control" type="date" style="width: 155px;" th:field="*{date}" id="date" th:value="${date}">
+            <input class="form-control" type="date" style="width: 155px;" th:field="*{date}" id="date" th:value="${date}" required>
          </div>
 
           <div>
@@ -22,7 +22,7 @@
 
           <div>
               <label for="phone">Телефон:</label>
-              <input class="form-control" type="text" th:field="*{phone}" placeholder="Телефон" id="phone">
+              <input class="form-control" type="text" th:field="*{phone}" placeholder="Телефон" id="phone" required>
           </div>
 
           <div class="col-md-12 col-sm-12">
@@ -32,7 +32,7 @@
 
           <div class="col-12">
              <label for="address">Адрес по которому ожидают врача:</label>
-             <input type="text" class="form-control" th:field="*{address}" id="address" placeholder="Адрес, по которому ожидают врача">
+             <input type="text" class="form-control" th:field="*{address}" id="address" placeholder="Адрес, по которому ожидают врача" required>
           </div>
     </div>
 </div>

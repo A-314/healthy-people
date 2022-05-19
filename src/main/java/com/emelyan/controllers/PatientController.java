@@ -30,8 +30,7 @@ public class PatientController {
     @PostMapping()
     public String create(@ModelAttribute("patient")@Valid Patient patient){
         patientService.save(patient);
-
-        return "redirect:/patients";
+   return "redirect:/patients";
     }
     @GetMapping("/{id}/edit")
     public String edit(Model model, @PathVariable("id")Long id){
@@ -40,8 +39,8 @@ public class PatientController {
     }
     @PatchMapping("/{id}")
     public String update(@ModelAttribute("patient")@Valid Patient patient,@PathVariable("id") Long id){
-       patientService.update(patient,id);
-        return "redirect:/patients";
+           patientService.update(patient,id);
+       return "redirect:/patients";
     }
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") Long id){

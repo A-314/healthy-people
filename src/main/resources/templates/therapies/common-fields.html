@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <label for="patientList">Указать, если ли пациент обращался ранее:</label>
-                    <select class="js-select2" th:field="*{patient}"  id="patientList" style="width: 100%">
+                    <select class="js-select2" th:field="*{patient}"  id="patientList" style="width: 100%" required>
                         <option value="" selected>--</option>
                         <option th:each="patient:${patients}"
                                 th:value="${patient.getId()}"
@@ -16,7 +16,7 @@
                 </div>
                 <div class="col-sm-4">
                     <label for="doctorList">Список врачей:</label>
-                    <select class="js-select2" th:field="*{doctor}"  id="doctorList" style="width: 100%">
+                    <select class="js-select2" th:field="*{doctor}"  id="doctorList" style="width: 100%" required>
                         <option value="" selected>--</option>
                         <option th:each="doctor:${doctors}"
                                 th:value="${doctor.getId()}"

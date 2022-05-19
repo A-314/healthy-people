@@ -5,7 +5,6 @@ import com.emelyan.models.Patient;
 import com.emelyan.services.DoctorService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
@@ -41,8 +40,7 @@ public class DoctorController {
     }
 
     @PostMapping
-    public String create(@ModelAttribute("doctor")@Valid Doctor doctor, BindingResult bindingResult){
-        if(bindingResult.hasErrors())return "people/doctors/new";
+    public String create(@ModelAttribute("doctor")@Valid Doctor doctor){
         doctorService.save(doctor);
         return "redirect:/doctors";
     }

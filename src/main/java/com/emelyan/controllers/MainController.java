@@ -39,7 +39,7 @@ public class MainController {
     @PatchMapping("/{id}")
     public String update(@ModelAttribute Treatment treatment){
         treatmentService.update(treatment);
-        return "redirect:/";
+        return "redirect:/therapies";
     }
 
     @GetMapping("/about_program")

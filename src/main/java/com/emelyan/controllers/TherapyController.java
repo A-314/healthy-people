@@ -6,7 +6,6 @@ import com.emelyan.services.PatientService;
 import com.emelyan.services.TherapyService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -36,9 +35,7 @@ public class TherapyController {
         return "therapies/new";
     }
     @PostMapping()
-    public String create(@ModelAttribute("therapy")@Valid Therapy therapy, BindingResult bindingResult){
-        if (bindingResult.hasErrors())
-            return "therapies/new";
+    public String create(@ModelAttribute("therapy")@Valid Therapy therapy){
         therapyService.save(therapy);
         return "redirect:/therapies";
     }
@@ -50,9 +47,7 @@ public class TherapyController {
         return "therapies/edit";
     }
     @PatchMapping("/{id}")
-    public String update(@ModelAttribute("therapy")@Valid Therapy therapy,BindingResult bindingResult){
-        if (bindingResult.hasErrors())
-            return "therapies/edit";
+    public String update(@ModelAttribute("therapy")@Valid Therapy therapy){
         therapyService.update(therapy);
         return "redirect:/therapies";
     }

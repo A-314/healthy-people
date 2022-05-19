@@ -11,10 +11,10 @@
     <div th:replace="main/common-fragments.html :: sidebar"></div>
     <main>
         <div class="container-fluid">
-            <form  th:method="delete" th:action = "@{/therapies/{id}(id=${therapy.getId()})}" th:object="${therapy}" novalidate>
+            <form  th:method="delete" th:action = "@{/therapies/{id}(id=${therapy.getId()})}" th:object="${therapy}">
                 <input class="btn btn-on-right" type="submit" value="Удалить">
             </form>
-            <form th:method="patch" th:action = "@{/therapies/{id}(id=${therapy.getId()})}" th:object="${therapy}" novalidate>
+            <form th:method="patch" th:action = "@{/therapies/{id}(id=${therapy.getId()})}" th:object="${therapy}" class="needs-validation">
                 <input class="btn btn-on-left" type="submit" value="Сохранить">
 
                 <div th:replace="therapies/common-fields.html :: therapy-fields"></div>

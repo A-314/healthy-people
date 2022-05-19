@@ -16,7 +16,7 @@
         <input class="btn btn-on-right" type="submit" value="Удалить">
       </form>
 
-      <form th:method="PATCH" th:action = "@{/doctors/{id}(id=${doctor.getId()})}" th:object="${doctor}" class="needs-validation" novalidate>
+      <form th:method="PATCH" th:action = "@{/doctors/{id}(id=${doctor.getId()})}" th:object="${doctor}" class="needs-validation">
         <input class="btn btn-on-left" type="submit" value="Сохранить">
         <div th:replace="people/common-fields.html :: person-fields"></div>
       </form>
