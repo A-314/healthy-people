@@ -5,7 +5,6 @@ import com.emelyan.services.PatientService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 
 @Controller
@@ -29,7 +28,7 @@ public class PatientController {
     }
 
     @PostMapping()
-    public String create(@ModelAttribute("patient")@Valid Patient patient,@RequestParam(required = false,defaultValue = "")String filter){
+    public String create(@ModelAttribute("patient")@Valid Patient patient){
         patientService.save(patient);
 
         return "redirect:/patients";

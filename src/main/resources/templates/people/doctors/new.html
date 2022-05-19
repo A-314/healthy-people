@@ -11,7 +11,7 @@
 
     <main>
       <div class="container-fluid">
-         <form th:method="post" th:action ="@{/doctors}" th:object="${doctor}" class="needs-validation" novalidate>
+         <form th:method="post" th:action ="@{/doctors}" th:object="${doctor}" class="needs-validation">
             <input class="btn btn-on-left" type="submit" value="Сохранить">
           <div th:replace="people/common-fields.html :: person-fields"></div>
          </form>

@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Setter
 @Getter
@@ -24,6 +25,7 @@ public class Therapy {
     @JoinColumn(name = "doctor_id")
     private Doctor doctor;
 
+    @Size(min = 2,max=255)
     private String diagnosis;
 
     private String description;

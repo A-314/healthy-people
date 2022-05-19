@@ -1,14 +1,21 @@
 <!--Displaying the fields of the Persons entity-->
+<!--common form for patients and doctors-->
 <div th:fragment="person-fields">
     <div class="container">
         <div class="row g-3">
             <div class="col-sm-4 input-group-sm">
                 <label for="name">Имя:</label>
-                <input type="text" th:field="*{person.name}" class="form-control" id="name"/>
+                <input type="text" th:field="*{person.name}" class="form-control" id="name" required/>
+                <div class="invalid-feedback">
+                    Пожалуйста, введите имя.
+                </div>
             </div>
             <div class="col-sm-4 input-group-sm">
                 <label for="surname">Фамилия:</label>
-                <input type="text" th:field="*{person.surname}" class="form-control" id="surname"/>
+                <input type="text" th:field="*{person.surname}" class="form-control" id="surname" required/>
+                <div class="invalid-feedback">
+                    Пожалуйста, введите фамилию.
+                </div>
             </div>
             <div class="col-sm-4 input-group-sm">
                 <label for="patronymic">Отчетство:</label>
@@ -17,7 +24,10 @@
 
             <div class="col-sm-3 input-group-sm">
                 <label for="phone">Телефон:</label>
-                <input type="text" th:field="*{person.phone}" class="form-control" id="phone"/>
+                <input type="text" th:field="*{person.phone}" class="form-control" id="phone" required/>
+                <div class="invalid-feedback">
+                    Пожалуйста, введите телефон.
+                </div>
             </div>
             <div class="col-sm-3 input-group-sm">
                 <label for="phoneSecond">Доп. телефон:</label>
@@ -30,12 +40,16 @@
 
             <div class="col-sm-4 input-group-sm">
                 <label for="address">Фактический адрес:</label>
-                <input type="text" th:field="*{person.factAddress}" class="form-control" id="address"/>
+                <input type="text" th:field="*{person.factAddress}" class="form-control" id="address" required/>
+                <div class="invalid-feedback">
+                    Вы забыли ввести адрес.
+                </div>
             </div>
 
             <div class="col-sm-3 input-group-sm">
-                <label for="email">Почта:</label>
-                <input type="email" th:field="*{person.email}" class="form-control" id="email" placeholder="ivanovich@gmail.com"/>
+                <label type="email" for="email">Почта:</label>
+                <input th:field="*{person.email}" class="form-control"
+                       id="email" placeholder="ivanovich@gmail.com"/>
             </div>
         </div>
     </div>
