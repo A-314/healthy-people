@@ -19,13 +19,13 @@ public class DoctorController {
     }
 
     @GetMapping()
-    public String index(Model model,@RequestParam(required = false, defaultValue = "")String filter){
+    public String getAll(Model model, @RequestParam(required = false, defaultValue = "") String filter){
         model.addAttribute("doctors",doctorService.doctorList(filter));
         model.addAttribute("filter",filter);
         return "people/doctors/index";
     }
     @GetMapping("{id}/edit")
-    public String edit(@PathVariable("id") Long id,Model model){
+    public String edit(@PathVariable("id") Long id, Model model){
         model.addAttribute("doctor",doctorService.getOne(id));
         return "people/doctors/edit";
     }
@@ -35,12 +35,12 @@ public class DoctorController {
         return "redirect:/doctors";
     }
     @GetMapping("/new")
-    public String addDoctor(@ModelAttribute("doctor")@Valid Patient patient){
+    public String createNew(@ModelAttribute("doctor")@Valid Patient patient){
         return "people/doctors/new";
     }
 
     @PostMapping
-    public String create(@ModelAttribute("doctor")@Valid Doctor doctor){
+    public String saveNew(@ModelAttribute("doctor")@Valid Doctor doctor){
         doctorService.save(doctor);
         return "redirect:/doctors";
     }
