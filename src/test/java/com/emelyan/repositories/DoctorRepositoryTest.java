@@ -28,8 +28,11 @@ public class DoctorRepositoryTest {
         doctor = Doctor.builder().person(person).build();
     }
     @Test
+    public void get0IfEmptyList(){
+        assertThat(doctorRepository.findDoctorsWithFilter("").size()).isEqualTo(0);
+    }
+    @Test
     public void findDoctorsWithFilter() {
-
         doctorRepository.save(doctor);
 
         assertAll(
@@ -37,7 +40,6 @@ public class DoctorRepositoryTest {
             ()->assertThat(doctorRepository.findDoctorsWithFilter("Smith").get(0).getId()).isEqualTo(doctor.getId()),
             ()->assertThat(doctorRepository.findDoctorsWithFilter("Leo").get(0).getId()).isEqualTo(doctor.getId())
         );
-
     }
     @Test
     public void findDoctorsWithFilterFail(){
@@ -67,5 +69,4 @@ public class DoctorRepositoryTest {
                 ()->assertThat(doctorRepository.findDoctorsWithFilter("e")).size().isNotZero()
         );
     }
-
 }
