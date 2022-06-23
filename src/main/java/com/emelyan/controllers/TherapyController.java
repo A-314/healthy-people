@@ -23,22 +23,26 @@ public class TherapyController {
         this.doctorService = doctorService;
         this.patientService= patientService;
     }
+
     @GetMapping
     public String getListTherapy(Model model){
         model.addAttribute("therapies", therapyService.findAll());
         return "therapies/index";
     }
+
     @GetMapping("new")
     public String index( @ModelAttribute("therapy")@Valid Therapy therapy,Model model){
-        model.addAttribute("doctors",doctorService.doctorList());
-        model.addAttribute("patients",patientService.patientList());
+        model.addAttribute("doctors", doctorService.doctorList());
+        model.addAttribute("patients", patientService.patientList());
         return "therapies/new";
     }
+
     @PostMapping()
     public String create(@ModelAttribute("therapy")@Valid Therapy therapy){
         therapyService.save(therapy);
         return "redirect:/therapies";
     }
+
     @GetMapping("/{id}/edit")
     public String edit( @PathVariable("id")Long id,Model model){
         model.addAttribute("therapy",  therapyService.show(id));
@@ -46,14 +50,17 @@ public class TherapyController {
         model.addAttribute("patients", patientService.patientList());
         return "therapies/edit";
     }
+
     @PatchMapping("/{id}")
     public String update(@ModelAttribute("therapy")@Valid Therapy therapy){
         therapyService.update(therapy);
         return "redirect:/therapies";
     }
+
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") Long id){
         therapyService.delete(id);
         return "redirect:/therapies";
     }
+
 }

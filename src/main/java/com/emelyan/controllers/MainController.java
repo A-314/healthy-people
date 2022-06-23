@@ -22,8 +22,9 @@ public class MainController {
     public String get(@ModelAttribute Treatment treatment, Model model){
        model.addAttribute("patients",patientService.patientList());
        model.addAttribute("treatments",treatmentService.findAll());
-        return "index";
+       return "index";
     }
+
     @PostMapping("/")
     public String save(@ModelAttribute Treatment treatment){
         treatmentService.save(treatment);
@@ -32,10 +33,11 @@ public class MainController {
 
     @GetMapping("/{id}/edit")
     public String edit(@PathVariable Long id, Model model){
-        model.addAttribute("patients",patientService.patientList());
+        model.addAttribute("patients", patientService.patientList());
         model.addAttribute("treatment",treatmentService.getOne(id));
         return "treatments/edit";
     }
+
     @PatchMapping("/{id}")
     public String update(@ModelAttribute Treatment treatment){
         treatmentService.update(treatment);

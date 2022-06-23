@@ -20,20 +20,23 @@ public class DoctorController {
 
     @GetMapping()
     public String getAll(Model model, @RequestParam(required = false, defaultValue = "") String filter){
-        model.addAttribute("doctors",doctorService.doctorList(filter));
-        model.addAttribute("filter",filter);
+        model.addAttribute("doctors", doctorService.doctorList(filter));
+        model.addAttribute("filter", filter);
         return "people/doctors/index";
     }
+
     @GetMapping("{id}/edit")
     public String edit(@PathVariable("id") Long id, Model model){
-        model.addAttribute("doctor",doctorService.getOne(id));
+        model.addAttribute("doctor", doctorService.getOne(id));
         return "people/doctors/edit";
     }
+
     @PatchMapping("/{id}")
-    public String update(@ModelAttribute("doctor") @Valid Doctor doctor, @PathVariable("id") Long id){
-        doctorService.update(doctor,id);
+    public String update(@ModelAttribute("doctor")@Valid Doctor doctor, @PathVariable("id") Long id){
+        doctorService.update(doctor, id);
         return "redirect:/doctors";
     }
+
     @GetMapping("/new")
     public String createNew(@ModelAttribute("doctor")@Valid Patient patient){
         return "people/doctors/new";
