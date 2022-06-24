@@ -1,0 +1,38 @@
+<div th:fragment="record-fields">
+        <div>
+            <label for="date">Дата записи к врачу:</label>
+            <input class="form-control" type="date" style="width: 155px;" th:field="*{date}" id="date" th:value="${date}" required>
+        </div>
+
+    <div>
+        <label for="interval">Время записи:</label>
+        <select class="js-select2" th:field="*{interval}" id="interval"  style="width: 100%">
+            <option value="" selected>--</option>
+            <option th:each="interval:${intervals}"
+                    th:value="${interval.getId()}"
+                    th:utext="${interval.getStartTime()}">
+        </select>
+    </div>
+
+        <div>
+            <label for="patient">Указать, если ли пациент обращался ранее:</label>
+            <select class="js-select2" th:field="*{patient}" id="patient"  style="width: 100%">
+                <option value="" selected>--</option>
+                <option th:each="patient:${patients}"
+                        th:value="${patient.getId()}"
+                        th:utext="${patient.getPerson()}">
+            </select>
+        </div>
+
+        <div>
+            <label for="name">Имя:</label>
+            <input class="form-control" type="text" th:field="*{nameNewPatient}" id="name" placeholder="*Указать имя, если пациент впервые">
+        </div>
+
+
+        <div class="col-md-12 col-sm-12">
+            <label for="description">Симптомы пациента:</label>
+            <textarea class="form-control" th:field="*{description}" placeholder="Симптомы, беспокоящие пациента..."  id="description"></textarea>
+        </div>
+</div>
+

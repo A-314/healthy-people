@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Новая запись</title>
+</head>
+<body>
+<div th:replace="main/common-fragments.html :: header"></div>
+<div th:replace="main/common-fragments.html :: sidebar"></div>
+
+<main>
+    <div class="container-fluid">
+        <div class="col-md-6">
+            <div class="row g-3 border">
+
+                <form th:method="post" th:action ="@{/records}" th:object="${Record}" class="needs-validation">
+                    <input class="btn btn-on-left" type="submit" value="Сохранить">
+
+                    <div th:replace="records/common-fields.html :: record-fields"></div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<div th:replace="main/common-fragments.html::common-links"></div>
+<div th:replace="main/common-fragments.html::style-select2"></div>
+</body>
+</html>
