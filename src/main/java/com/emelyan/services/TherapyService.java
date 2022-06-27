@@ -2,17 +2,15 @@ package com.emelyan.services;
 
 import com.emelyan.models.Therapy;
 import com.emelyan.repositories.TherapyRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class TherapyService {
 
     private final TherapyRepository therapyRepository;
-
-    public TherapyService(TherapyRepository therapyRepository) {
-        this.therapyRepository = therapyRepository;
-    }
 
     public List<Therapy> findAll(){return therapyRepository.findAll();}
 
