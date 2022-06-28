@@ -13,7 +13,7 @@ public class DoctorService {
     private final DoctorRepository doctorRepository;
 
     public List<Doctor> doctorList(String filter){
-        if(filter!=null && !filter.isEmpty()){
+        if(filter!= null && !filter.isEmpty()){
             return doctorRepository.findDoctorsWithFilter(filter);
         }else {return doctorRepository.findAll();}
     }

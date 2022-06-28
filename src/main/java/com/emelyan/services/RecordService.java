@@ -5,6 +5,7 @@ import com.emelyan.models.Interval;
 import com.emelyan.models.Record;
 import com.emelyan.repositories.IntervalRepository;
 import com.emelyan.repositories.RecordRepository;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,7 @@ import java.util.List;
 import static com.emelyan.util.DataTimeUtil.MILLISECONDS_IN_DAY;
 
 @Service
+@RequiredArgsConstructor
 public class RecordService {
 
     protected static final Logger LOG = LoggerFactory.getLogger(RecordsController.class);
@@ -30,12 +32,6 @@ public class RecordService {
 
     private Timestamp startPeriod;
     private Timestamp endPeriod;
-
-    public RecordService(RecordRepository repository,
-                         IntervalRepository intervalRepository) {
-        this.repository = repository;
-        this.intervalRepository = intervalRepository;
-    }
 
     public ArrayList<ArrayList<Record>> getSchedule(Long startPeriodMillis) {
 
@@ -68,7 +64,7 @@ public class RecordService {
 
                 }else{weekSchedule.add(null);}
 
-                dayOfWeek = dayOfWeek+MILLISECONDS_IN_DAY;
+                dayOfWeek = dayOfWeek + MILLISECONDS_IN_DAY;
             }
             LOG.info(weekSchedule.toString());
             scheduleTable.add(weekSchedule);

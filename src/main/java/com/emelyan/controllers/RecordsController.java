@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.text.ParseException;
+import java.time.Instant;
+import java.util.Calendar;
 
 import static com.emelyan.util.DataTimeUtil.*;
 
@@ -37,7 +39,7 @@ public class RecordsController {
 
         long startPeriodMillis;
 
-        if(startPeriod.equals("")){startPeriodMillis = System.currentTimeMillis();
+        if(startPeriod.isEmpty()){startPeriodMillis = getTimeToStartToday();
         }else{ startPeriodMillis = dateFormatYearMonthDay.parse(startPeriod).getTime();}
 
         LOG.info("Get schedule of reception on "+ (startPeriod.equals("")?dateFormatYearMonthDay.format(startPeriodMillis):startPeriod));
