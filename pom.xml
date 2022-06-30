@@ -68,10 +68,6 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.flywaydb</groupId>
-			<artifactId>flyway-core</artifactId>
-		</dependency>
 		<!--Test setting-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
