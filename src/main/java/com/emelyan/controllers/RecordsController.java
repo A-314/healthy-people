@@ -4,6 +4,7 @@ import com.emelyan.models.Record;
 import com.emelyan.services.IntervalService;
 import com.emelyan.services.PatientService;
 import com.emelyan.services.RecordService;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -12,27 +13,19 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.text.ParseException;
-import java.time.Instant;
-import java.util.Calendar;
 
 import static com.emelyan.util.DataTimeUtil.*;
 
 @Controller
 @RequestMapping("records")
+@RequiredArgsConstructor
 public class RecordsController {
 
     protected static final Logger LOG = LoggerFactory.getLogger(RecordsController.class);
 
-    RecordService receptionScheduleService;
-    IntervalService receptionIntervalService;
-    PatientService  patientService;
-
-    public RecordsController(RecordService receptionScheduleService,
-                             IntervalService receptionIntervalService, PatientService patientService) {
-        this.receptionScheduleService = receptionScheduleService;
-        this.receptionIntervalService = receptionIntervalService;
-        this.patientService = patientService;
-    }
+    private final RecordService receptionScheduleService;
+    private final IntervalService receptionIntervalService;
+    private final PatientService  patientService;
 
     @GetMapping()
     public String getReceptionSchedule(Model model, @RequestParam(required = false, defaultValue = "") String startPeriod) throws ParseException {

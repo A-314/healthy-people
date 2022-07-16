@@ -4,25 +4,20 @@ import com.emelyan.models.Therapy;
 import com.emelyan.services.DoctorService;
 import com.emelyan.services.PatientService;
 import com.emelyan.services.TherapyService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 
 @Controller
 @RequestMapping("therapies")
+@RequiredArgsConstructor
 public class TherapyController {
 
-    TherapyService therapyService;
-    DoctorService  doctorService;
-    PatientService patientService;
-
-    TherapyController(TherapyService therapyService,DoctorService doctorService,PatientService patientService){
-        this.therapyService= therapyService;
-        this.doctorService = doctorService;
-        this.patientService= patientService;
-    }
+    private final TherapyService therapyService;
+    private final DoctorService  doctorService;
+    private final PatientService patientService;
 
     @GetMapping
     public String getListTherapy(Model model){

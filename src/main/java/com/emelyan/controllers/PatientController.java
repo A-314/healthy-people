@@ -2,6 +2,7 @@ package com.emelyan.controllers;
 
 import com.emelyan.models.Patient;
 import com.emelyan.services.PatientService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -9,12 +10,10 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("patients")
+@RequiredArgsConstructor
 public class PatientController {
 
-    PatientService patientService;
-    PatientController(PatientService patientService){
-        this.patientService = patientService;
-    }
+    private final PatientService patientService;
 
     @GetMapping()
     public String index(Model model,@RequestParam(required = false, defaultValue ="")String filter){
