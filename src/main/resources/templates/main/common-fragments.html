@@ -67,25 +67,79 @@
         });
     </script>
 </div>
+
 <div th:fragment="validation-form">
-    <script>// Пример стартового JavaScript для отключения отправки форм при наличии недопустимых полей
-    (function () {
-        'use strict'
+    <script>
+        (function () {
+            'use strict'
 
-        // Получите все формы, к которым мы хотим применить пользовательские стили проверки Bootstrap
-        var forms = document.querySelectorAll('.needs-validation')
+            //
+            var forms = document.querySelectorAll('.needs-validation')
 
-        // Зацикливайтесь на них и предотвращайте отправку
-        Array.prototype.slice.call(forms)
-            .forEach(function (form) {
-                form.addEventListener('submit', function (event) {
-                    if (!form.checkValidity()) {
-                        event.preventDefault()
-                        event.stopPropagation()
-                    }
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
 
-                    form.classList.add('was-validated')
-                }, false)
-            })
-    })()</script>
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
+</div>
+
+
+<div th:fragment="bar-chart">
+    <script>
+        google.load("visualization", "1", {packages:["corechart"]});
+        google.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+           // let commonAccountPatientToDay = "[[${commonAccountPatientToDay}]]".split(",");
+           // let dateOfPrevious10Days = "[[${commonAccountPatientToDay}]]".split(",");
+
+            var data = google.visualization.arrayToDataTable([
+                ['Дата', 'Кол.'],
+                [1, 10],
+                //[dateOfPrevious10Days[0], Number(commonAccountPatientToDay[0])],
+
+            ]);
+
+            var options = {
+                title: 'Общее количество вызовов по дням',
+                hAxis: {title: 'Предыдущие 10 дней'},
+                vAxis: {title: 'Количество вызовов'}
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('bar-chart'));
+            chart.draw(data, options);
+        };
+    </script>
+</div>
+
+<div th:fragment="pie-chart">
+    <script>
+        google.load("visualization", "1", {packages:["corechart"]});
+        google.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            //let commonAccountPatientToDay = "[[${commonAccountPatientToDay}]]".split(",");
+            //let dateOfPrevious10Days      = "[[${dateOfPrevious10Days}]]".split(",");
+            var data = google.visualization.arrayToDataTable([
+                ['Врач', 'Процент от общего количества'],
+                ['Торопышкин', 100],
+                //[dateOfPrevious10Days[0], Number(commonAccountPatientToDay[0])],
+            ]);
+            var options = {
+                title: 'Нагрузка врачей',
+                is3D: true,
+                pieResidueSliceLabel: 'Остальное'
+            };
+            var chart = new google.visualization.PieChart(document.getElementById('pie-chart'));
+            chart.draw(data, options);
+        }
+    </script>
 </div>
