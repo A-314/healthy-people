@@ -3,7 +3,6 @@ package com.emelyan.models;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-
 import javax.persistence.*;
 
 @Setter
@@ -25,6 +24,10 @@ public class Therapy {
     private Doctor doctor;
 
     private String diagnosis;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "record_id")
+    private Record record;
 
     private String description;
 }

@@ -26,7 +26,7 @@ public class TherapyController {
     }
 
     @GetMapping("new")
-    public String index( @ModelAttribute("therapy")@Valid Therapy therapy,Model model){
+    public String index( @ModelAttribute("therapy")@Valid Therapy therapy, Model model){
         model.addAttribute("doctors", doctorService.doctorList());
         model.addAttribute("patients", patientService.patientList());
         return "therapies/new";
@@ -39,10 +39,11 @@ public class TherapyController {
     }
 
     @GetMapping("/{id}/edit")
-    public String edit( @PathVariable("id")Long id,Model model){
-        model.addAttribute("therapy",  therapyService.show(id));
-        model.addAttribute("doctors",  doctorService.doctorList());
-        model.addAttribute("patients", patientService.patientList());
+    public String edit( @PathVariable("id")Long id, Model model){
+        model.addAttribute("therapy",   therapyService.show(id));
+        model.addAttribute("therapies", therapyService.findAll());
+        model.addAttribute("doctors",   doctorService.doctorList());
+        model.addAttribute("patients",  patientService.patientList());
         return "therapies/edit";
     }
 

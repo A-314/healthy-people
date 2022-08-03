@@ -98,15 +98,17 @@
         google.setOnLoadCallback(drawChart);
 
         function drawChart() {
-           // let commonAccountPatientToDay = "[[${commonAccountPatientToDay}]]".split(",");
-           // let dateOfPrevious10Days = "[[${commonAccountPatientToDay}]]".split(",");
+            let amountPatientBarChart = "[[${amountPatientBarChart}]]".split(",");
+            let periodBarChart = "[[${periodBarChart}]]".split(",");
 
-            var data = google.visualization.arrayToDataTable([
-                ['Дата', 'Кол.'],
-                [1, 10],
-                //[dateOfPrevious10Days[0], Number(commonAccountPatientToDay[0])],
+            var data = new google.visualization.DataTable();
 
-            ]);
+            data.addColumn('string', 'Name');
+            data.addColumn('number', 'Occupation');
+
+            for (var n = 0; n < periodBarChart.length; n++) {
+                data.addRow([periodBarChart[n], Number(amountPatientBarChart[n])]);
+            }
 
             var options = {
                 title: 'Общее количество вызовов по дням',
@@ -126,13 +128,19 @@
         google.setOnLoadCallback(drawChart);
 
         function drawChart() {
-            //let commonAccountPatientToDay = "[[${commonAccountPatientToDay}]]".split(",");
-            //let dateOfPrevious10Days      = "[[${dateOfPrevious10Days}]]".split(",");
-            var data = google.visualization.arrayToDataTable([
-                ['Врач', 'Процент от общего количества'],
-                ['Торопышкин', 100],
-                //[dateOfPrevious10Days[0], Number(commonAccountPatientToDay[0])],
-            ]);
+
+            let doctorsPieChart = "[[${doctorsPieChart}]]".split(",");
+            let percentagesPieChart = "[[${percentagesPieChart}]]".split(",");
+
+            var data = new google.visualization.DataTable();
+
+            data.addColumn('string', 'Name');
+            data.addColumn('number', 'Occupation');
+
+            for (var n = 0; n < doctorsPieChart.length; n++) {
+                data.addRow([doctorsPieChart[n], Number(percentagesPieChart[n])]);
+            }
+
             var options = {
                 title: 'Нагрузка врачей',
                 is3D: true,

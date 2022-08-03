@@ -1,12 +1,12 @@
 <div th:fragment="therapy-fields">
     <div>
         <div class="d-flex justify-content-center">
-            <h3 class="">Персональны данные</h3>
+            <h3 class=""></h3>
         </div>
         <div class="border">
             <div class="row">
                 <div class="col-sm-4">
-                    <label for="patientList">Указать, если ли пациент обращался ранее:</label>
+                    <label for="patientList">Пациент:</label>
                     <select class="js-select2" th:field="*{patient}"  id="patientList" style="width: 100%" required>
                         <option value="" selected>--</option>
                         <option th:each="patient:${patients}"
@@ -15,7 +15,7 @@
                     </select>
                 </div>
                 <div class="col-sm-4">
-                    <label for="doctorList">Список врачей:</label>
+                    <label for="doctorList">Лечащий врач:</label>
                     <select class="js-select2" th:field="*{doctor}"  id="doctorList" style="width: 100%" required>
                         <option value="" selected>--</option>
                         <option th:each="doctor:${doctors}"
@@ -32,9 +32,19 @@
                     <label for="symptoms">Анамнез:</label>
                     <textarea class="form-control" placeholder="Симптомы, состояние пациента..." id="symptoms"></textarea>
                 </div>
+
                 <div class="col-sm-4 input-group-sm">
                     <label for="preparations">Препараты:</label>
                     <textarea class="form-control" placeholder="Рекомендуемые препараты" id="preparations"></textarea>
+                </div>
+                <div class="col-sm-4 input-group-sm">
+                    <label for="recordList">Заявка:</label>
+                    <select class="js-select2" th:field="*{record}"  id="recordList" style="width: 100%" required>
+                        <option value="" selected>--</option>
+                        <option th:each="therapy:${therapies}"
+                                th:value="${therapy.getId()}"
+                                th:utext="${therapy.getPatient()} + ' ' + ${therapy.getRecord()}">
+                    </select>
                 </div>
             </div>
          </div>

@@ -15,7 +15,7 @@ import java.util.Date;
 public class Record {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     @Column(name = "date")
     @DateTimeFormat(pattern="yyyy-MM-dd")
